@@ -1,0 +1,116 @@
+DIABETES MELLITUS TYPE 2
+========================
+
+Definition
+----------
+Type 2 Diabetes Mellitus (T2DM) is a chronic metabolic disorder characterized by hyperglycaemia
+resulting from insulin resistance combined with relative insulin deficiency. It accounts for 90-95%
+of all diabetes cases globally.
+
+Diagnostic Criteria (ADA 2023)
+-------------------------------
+Any one of the following:
+1. Fasting plasma glucose ≥126 mg/dL (7.0 mmol/L) — after no caloric intake for ≥8 hours
+2. 2-hour plasma glucose ≥200 mg/dL (11.1 mmol/L) during OGTT (75g oral glucose load)
+3. HbA1c ≥6.5% (48 mmol/mol)
+4. Random plasma glucose ≥200 mg/dL with classic hyperglycaemia symptoms
+
+Pre-diabetes:
+- Impaired fasting glucose: 100–125 mg/dL
+- Impaired glucose tolerance: 2h OGTT 140–199 mg/dL
+- HbA1c: 5.7–6.4%
+
+Classic Symptoms
+----------------
+- Polyuria (frequent urination)
+- Polydipsia (excessive thirst)
+- Polyphagia (excessive hunger)
+- Unexplained weight loss
+- Fatigue, blurred vision
+- Recurrent infections (skin, UTI, genital candidiasis)
+- Slow-healing wounds
+
+Risk Factors
+------------
+- Obesity (BMI ≥30, especially central adiposity)
+- Sedentary lifestyle
+- Family history (first-degree relative)
+- Previous gestational diabetes or PCOS
+- Hypertension, dyslipidemia (metabolic syndrome)
+- Ethnicity: South Asian, African, Hispanic higher risk
+- Age ≥45 years
+
+Investigations
+--------------
+- FPG and HbA1c for diagnosis and monitoring
+- Lipid profile (cardiovascular risk)
+- Urinalysis + urine ACR (albumin:creatinine ratio — microalbuminuria)
+- Serum creatinine + eGFR (diabetic nephropathy)
+- Thyroid function (comorbidity screening)
+- Fundoscopy (retinopathy)
+- Foot examination (neuropathy, vascular)
+- ECG (cardiac risk)
+
+Pharmacological Treatment
+--------------------------
+First-line: METFORMIN
+- Mechanism: reduces hepatic gluconeogenesis, improves insulin sensitivity
+- Dose: 500mg twice daily, titrate to 1000mg twice daily
+- Contraindications: eGFR <30 mL/min/1.73m², contrast procedures (hold 48h)
+- Benefits: weight neutral, low hypoglycaemia risk, cheap, cardioprotective signals
+- Side effects: GI upset (start low, titrate slowly; take with food)
+
+Add-on therapies based on comorbidities:
+1. GLP-1 Receptor Agonists (semaglutide, dulaglutide, liraglutide)
+   - Preferred with established ASCVD, heart failure, CKD, or weight loss need
+   - Significant cardiovascular and renal benefits
+   - Side effects: nausea, vomiting; risk of pancreatitis
+
+2. SGLT-2 Inhibitors (empagliflozin, dapagliflozin, canagliflozin)
+   - Preferred in heart failure with reduced EF, CKD
+   - Mechanisms: renal glucose excretion, reduce preload/afterload
+   - Side effects: genital mycotic infections, DKA risk, UTI
+
+3. DPP-4 Inhibitors (sitagliptin, saxagliptin)
+   - Weight neutral, safe in CKD (dose adjust)
+   - Modest HbA1c reduction
+
+4. Sulfonylureas (gliclazide, glimepiride)
+   - Inexpensive, effective; risk of hypoglycaemia and weight gain
+   - Prefer gliclazide MR (lower hypoglycaemia risk)
+
+5. Insulin therapy
+   - Indicated: HbA1c >10%, symptomatic hyperglycaemia, failure of oral agents
+   - Types: basal (glargine, detemir), rapid-acting (lispro, aspart), premixed
+
+HbA1c Targets
+--------------
+- General target: <7.0% (53 mmol/mol)
+- Individualise: <6.5% if newly diagnosed, low hypoglycaemia risk, no CVD
+- Less stringent <8.0%: elderly, limited life expectancy, multiple comorbidities
+
+Complications
+-------------
+Microvascular:
+- Diabetic nephropathy: ACR >3 mg/mmol; manage with ACEi/ARB
+- Diabetic retinopathy: annual fundoscopy; laser/anti-VEGF treatment
+- Diabetic neuropathy: peripheral (glove-stocking numbness, burning), autonomic
+
+Macrovascular:
+- Coronary artery disease (leading cause of death)
+- Stroke
+- Peripheral artery disease (foot ulcers, amputation risk)
+
+Diabetic Foot:
+- Annual foot exam mandatory
+- Monofilament testing for neuropathy
+- Inspect for callus, ulcers, deformity, ischaemia
+- Multidisciplinary foot team for ulcer management
+
+Lifestyle Management
+--------------------
+- Medical nutrition therapy: balanced diet, carbohydrate awareness, reduce refined sugars
+- Physical activity: 150 min/week moderate intensity aerobic + resistance training
+- Weight management: 5-10% weight loss significantly improves glycaemic control
+- Smoking cessation: critical for macrovascular risk reduction
+- Alcohol: moderation; educate on hypoglycaemia risk with insulin/sulfonylureas

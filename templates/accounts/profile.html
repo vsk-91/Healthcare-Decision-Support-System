@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}My Profile — Healthcare DSS{% endblock %}
+{% block page_title %}My Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-lg-7">
+  <div class="section-card">
+    <div class="section-header"><i class="fas fa-user-circle text-primary me-2"></i>Profile Settings</div>
+    <div class="section-body">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <div style="width:64px;height:64px;background:linear-gradient(135deg,#0d6efd,#6f42c1);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <span class="text-white fw-bold fs-4">{{ user.get_full_name|first|default:user.username|first|upper }}</span>
+        </div>
+        <div>
+          <div class="fw-bold fs-5">{{ user.get_full_name|default:user.username }}</div>
+          <span class="badge rounded-pill {% if user.is_patient %}bg-info text-dark{% elif user.is_doctor %}bg-primary{% elif user.is_staff_member %}bg-secondary{% else %}bg-danger{% endif %}">{{ user.role }}</span>
+        </div>
+      </div>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.errors %}<div class="alert alert-danger py-2 small">Please correct the errors below.</div>{% endif %}
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium small">First Name</label>
+            <input type="text" name="first_name" class="form-control" value="{{ form.first_name.value|default:'' }}">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium small">Last Name</label>
+            <input type="text" name="last_name" class="form-control" value="{{ form.last_name.value|default:'' }}">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-medium small">Email</label>
+          <input type="email" name="email" class="form-control" value="{{ form.email.value|default:'' }}">
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium small">Phone</label>
+            <input type="tel" name="phone" class="form-control" value="{{ form.phone.value|default:'' }}">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium small">Date of Birth</label>
+            <input type="date" name="date_of_birth" class="form-control" value="{{ form.date_of_birth.value|default:'' }}">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-medium small">Gender</label>
+          <select name="gender" class="form-select">
+            <option value="">Select gender</option>
+            <option value="M" {% if form.gender.value == 'M' %}selected{% endif %}>Male</option>
+            <option value="F" {% if form.gender.value == 'F' %}selected{% endif %}>Female</option>
+            <option value="O" {% if form.gender.value == 'O' %}selected{% endif %}>Other</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="form-label fw-medium small">Address</label>
+          <textarea name="address" class="form-control" rows="2">{{ form.address.value|default:'' }}</textarea>
+        </div>
+        <div class="d-flex justify-content-end gap-2">
+          <button type="submit" class="btn btn-primary px-4"><i class="fas fa-save me-2"></i>Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="section-card mt-3">
+    <div class="section-header"><i class="fas fa-info-circle text-secondary me-2"></i>Account Information</div>
+    <div class="section-body">
+      <div class="row">
+        <div class="col-sm-6 mb-2"><div class="info-label">Username</div><div class="info-value fw-medium">{{ user.username }}</div></div>
+        <div class="col-sm-6 mb-2"><div class="info-label">Role</div><div class="info-value">{{ user.get_role_display }}</div></div>
+        <div class="col-sm-6 mb-2"><div class="info-label">Member Since</div><div class="info-value">{{ user.date_joined|date:"M d, Y" }}</div></div>
+        <div class="col-sm-6"><div class="info-label">Last Login</div><div class="info-value">{{ user.last_login|date:"M d, Y H:i"|default:"Never" }}</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

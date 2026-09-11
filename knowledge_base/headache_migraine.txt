@@ -1,0 +1,147 @@
+HEADACHE AND MIGRAINE
+======================
+
+Classification of Headache Disorders (ICHD-3)
+----------------------------------------------
+Primary headaches (no underlying structural disease):
+1. Migraine (with and without aura)
+2. Tension-type headache (TTH) — most common
+3. Cluster headache and other trigeminal autonomic cephalalgias (TACs)
+
+Secondary headaches (symptom of underlying disease):
+- SAH, meningitis, raised ICP, giant cell arteritis, hypertensive emergency
+
+Approach to Headache — Red Flags (SNOOP4 Mnemonic):
+S — Systemic symptoms (fever, weight loss, cancer/HIV history)
+N — Neurological signs or symptoms
+O — Onset sudden (thunderclap — SAH until proven otherwise)
+O — Onset after 50 years (first headache in elderly — GCA, malignancy)
+P — Pattern change (new headache or change in existing pattern)
+P — Precipitated by Valsalva (coughing, straining — raised ICP)
+P — Postural component (worse lying flat — raised ICP; better lying flat — low CSF pressure)
+P — Pregnancy/puerperium (pre-eclampsia, cerebral venous thrombosis)
+
+MIGRAINE
+=========
+
+Epidemiology:
+- Prevalence: 12% population; female:male ratio 3:1
+- Peak onset: 25–55 years
+- Leading cause of disability in working-age adults
+
+Migraine Without Aura (Common Migraine):
+Diagnostic criteria (at least 5 attacks):
+- Duration 4–72 hours (untreated or unsuccessfully treated)
+- ≥2 of: unilateral, pulsating, moderate/severe intensity, aggravated by physical activity
+- ≥1 of: nausea/vomiting, photophobia AND phonophobia
+
+Migraine With Aura (Classic Migraine):
+- Visual aura most common: positive (scintillating scotoma, fortification spectra) or
+  negative (scotoma) visual phenomena developing gradually over 5–20 minutes, lasting <60 minutes
+- Sensory aura: unilateral paresthesia spreading (cheiro-oral)
+- Dysphasia (language disturbance)
+- Motor aura (hemiplegic migraine — rare)
+
+Phases of Migraine:
+1. Prodrome (hours-days before): yawning, food cravings, mood changes, fatigue, photosensitivity
+2. Aura (30–60 minutes)
+3. Headache phase (4–72 hours)
+4. Postdrome: "migraine hangover" — cognitive blunting, fatigue, neck stiffness
+
+Migraine Triggers (common, patient-specific):
+- Menstruation (most reliable trigger)
+- Sleep deprivation or oversleeping
+- Stress and stress relief (let-down migraine)
+- Dietary: alcohol (red wine, beer), caffeine withdrawal, skipping meals
+- Environmental: bright lights, strong smells, weather changes, altitude
+- Hormonal: OCP, perimenstrual
+
+Investigations:
+- Clinical diagnosis; no routine investigations required for typical migraine
+- Brain MRI: if first/worst headache, progressive headache, atypical aura, focal neurological signs,
+  age >50 at onset, headache with exertion/Valsalva
+- LP: if SAH suspected and CT head normal
+
+Acute (Abortive) Treatment:
+Step 1: Analgesics (mild-moderate attacks)
+- Aspirin 900mg + metoclopramide 10mg (superior to paracetamol for migraine)
+- Ibuprofen 400–600mg + antiemetic
+- Paracetamol 1g + codeine (limited evidence)
+
+Step 2: Triptans (moderate-severe attacks, or analgesic failure)
+- Sumatriptan 50–100mg oral; 6mg SC; 10mg intranasal
+- Zolmitriptan, rizatriptan, eletriptan, naratriptan
+- MOA: 5HT1B/1D agonists — vasoconstriction, inhibit CGRP release
+- Contraindications: established coronary artery disease, uncontrolled hypertension, hemiplegic migraine
+- Take early in headache phase (NOT in aura)
+- Avoid overuse: medication overuse headache if used >10 days/month
+
+Step 3: Antiemetics
+- Metoclopramide 10mg or prochlorperazine 10mg (buccal/oral) at headache onset
+- Also promotes gastric emptying (enhances analgesic absorption)
+- Domperidone 10mg less extrapyramidal effects
+
+Gepants (newer agents):
+- Ubrogepant, rimegepant: CGRP receptor antagonists — safe in cardiovascular disease
+- Lasmiditan: 5HT1F agonist — no vasoconstrictive effects
+
+Preventive (Prophylactic) Treatment
+-------------------------------------
+Indications:
+- ≥4 migraine attacks/month causing significant disability
+- Attacks lasting >48 hours
+- Triptan/analgesic overuse
+- Hemiplegic, basilar, or frequent aura migraine
+
+First-line options:
+1. Propranolol 40–120mg BD (beta-blocker): evidence-based; avoid in asthma, depression
+2. Topiramate 25–100mg OD: weight neutral/loss benefit; side effects: cognitive slowing, paraesthesia, teratogenic
+3. Amitriptyline 10–75mg nocte: especially if comorbid insomnia or tension-type
+4. Sodium valproate 400–600mg BD: effective but teratogenic (avoid women of childbearing potential)
+
+CGRP Monoclonal Antibodies (newer, injectable):
+- Erenumab, fremanezumab, galcanezumab (monthly or quarterly SC injections)
+- Highly effective, excellent tolerability; use if 2 oral preventives failed
+
+Botulinum Toxin A (Botox):
+- Licensed for chronic migraine (≥15 headache days/month, ≥8 of which are migraine)
+- Administered every 12 weeks by specialist
+
+Non-pharmacological Prevention:
+- Regular sleep schedule, consistent mealtimes
+- Maintain hydration
+- Regular moderate exercise
+- Trigger identification and avoidance (headache diary)
+- Stress management: CBT, biofeedback, relaxation therapy
+- Limit caffeine and alcohol
+
+TENSION-TYPE HEADACHE (TTH)
+============================
+- Most prevalent headache (40–80% population)
+- Character: pressing/tightening (band-like), bilateral, mild-moderate severity
+- Duration: 30 minutes to 7 days
+- NOT aggravated by routine physical activity
+- Absent: nausea/vomiting, photophobia AND phonophobia (not both)
+
+Management:
+- Acute: aspirin 900mg or ibuprofen 400–600mg
+- Paracetamol less effective than NSAIDs for TTH
+- Avoid opioids and caffeine-containing products (medication overuse risk)
+- Prevention: amitriptyline 10–75mg; manage stress, posture, sleep
+- Physiotherapy: cervical manual therapy, muscle relaxation
+
+CLUSTER HEADACHE
+=================
+- Male predominance (5:1); episodic or chronic
+- Excruciating unilateral orbital/supraorbital/temporal pain (10/10)
+- Duration: 15–180 minutes; 1–8 attacks/day; nocturnal
+- Ipsilateral: lacrimation, nasal congestion/rhinorrhoea, ptosis, miosis, facial flushing
+
+Acute: 100% oxygen (12–15 L/min for 15 minutes) — first-line; sumatriptan 6mg SC
+Prevention: verapamil 240–480mg/day; lithium for chronic cluster
+
+MEDICATION OVERUSE HEADACHE (MOH)
+===================================
+- Occurs with: triptans >10 days/month; analgesics/opioids >15 days/month
+- Presents as: daily or near-daily headache, worse in morning
+- Treatment: withdraw offending medication (supervised withdrawal); preventive therapy

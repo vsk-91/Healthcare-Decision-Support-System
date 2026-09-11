@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Audit Logs — Admin{% endblock %}
+{% block page_title %}Audit Logs{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div><h4 class="fw-bold mb-1">Audit Logs</h4><p class="text-muted small mb-0">Full system activity trail for compliance and monitoring.</p></div>
+</div>
+
+<!-- Filters -->
+<div class="mb-3 d-flex gap-2 flex-wrap">
+  <a href="{% url 'administration:audit_log_list' %}" class="btn btn-sm {% if not action_filter %}btn-secondary{% else %}btn-outline-secondary{% endif %}">All</a>
+  {% for action, label in action_choices %}
+  <a href="?action={{ action }}" class="btn btn-sm {% if action_filter == action %}btn-secondary{% else %}btn-outline-secondary{% endif %}">{{ label }}</a>
+  {% endfor %}
+</div>
+
+<div class="section-card">
+  <div class="section-body p-0">
+    <table class="table table-hover table-sm mb-0">
+      <thead class="table-light"><tr><th>Timestamp</th><th>Action</th><th>User</th><th>Description</th><th>IP</th></tr></thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td class="small text-muted" style="white-space:nowrap">{{ log.timestamp|date:"M d, Y H:i:s" }}</td>
+          <td><span class="badge bg-light text-dark border small">{{ log.get_action_display }}</span></td>
+          <td class="small fw-medium">{{ log.user.username|default:"System" }}</td>
+          <td class="small">{{ log.description|truncatechars:80 }}</td>
+          <td class="small text-muted">{{ log.ip_address|default:"—" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5" class="text-center text-muted py-5"><i class="fas fa-history fa-3x opacity-25 d-block mb-3"></i>No audit logs yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if logs.has_other_pages %}
+    <div class="p-3">
+      <nav><ul class="pagination pagination-sm mb-0">
+        {% if logs.has_previous %}<li class="page-item"><a class="page-link" href="?page={{ logs.previous_page_number }}{% if action_filter %}&action={{ action_filter }}{% endif %}">«</a></li>{% endif %}
+        <li class="page-item active"><a class="page-link" href="#">{{ logs.number }} / {{ logs.paginator.num_pages }}</a></li>
+        {% if logs.has_next %}<li class="page-item"><a class="page-link" href="?page={{ logs.next_page_number }}{% if action_filter %}&action={{ action_filter }}{% endif %}">»</a></li>{% endif %}
+      </ul></nav>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,134 @@
+CARDIAC RISK ASSESSMENT AND CHEST PAIN EVALUATION
+==================================================
+
+CHEST PAIN — EMERGENCY ASSESSMENT
+====================================
+
+Key Principle: chest pain is a medical emergency until proven otherwise.
+Life-threatening causes must be excluded before other diagnoses are considered.
+
+Life-Threatening Causes to Rule Out First:
+1. Acute Coronary Syndrome (ACS): STEMI, NSTEMI, Unstable Angina
+2. Aortic Dissection
+3. Pulmonary Embolism
+4. Tension Pneumothorax
+5. Pericardial Tamponade
+6. Oesophageal Rupture (Boerhaave syndrome)
+
+Immediate Assessment (within 10 minutes):
+- 12-lead ECG
+- Vital signs: BP (both arms if dissection suspected), HR, SpO2, respiratory rate
+- IV access, bloods including troponin, FBC, coagulation, D-dimer
+- Oxygen if SpO2 <94%
+- Continuous cardiac monitoring
+
+ACUTE CORONARY SYNDROME (ACS)
+================================
+
+ACS Spectrum:
+1. ST-Elevation MI (STEMI): complete coronary occlusion; ECG shows ST elevation
+2. Non-ST Elevation MI (NSTEMI): incomplete occlusion; elevated troponin, no ST elevation
+3. Unstable Angina (UA): incomplete occlusion; no troponin rise, symptoms at rest
+
+Symptoms of ACS:
+- Central/crushing chest pain or pressure (classic)
+- Radiation to left arm, jaw, neck, back, epigastrium
+- Associated: diaphoresis, nausea, dyspnoea, vomiting, palpitations
+- Atypical presentations (especially in women, elderly, diabetics):
+  epigastric pain, dyspnoea only, fatigue, syncope, arm pain without chest pain
+
+ECG Findings:
+- STEMI: ST elevation ≥1mm in ≥2 contiguous leads (≥2mm in V1-V4)
+  or new LBBB
+- NSTEMI/UA: ST depression, T-wave inversion, or normal
+- New Q waves: established infarct
+
+Troponin Interpretation:
+- Highly sensitive troponin (hsTn): positive >99th percentile of reference population
+- Serial troponins: 0h and 3h (or 0h and 1h with hs-troponin protocol)
+- Rise and fall pattern confirms AMI; sustained elevation = chronic myocardial injury
+
+STEMI Management:
+- Primary PCI (percutaneous coronary intervention): target door-to-balloon <90 minutes
+- If PCI not available within 120 minutes: fibrinolysis (alteplase, tenecteplase)
+- Dual antiplatelet therapy: aspirin 300mg + P2Y12 inhibitor (ticagrelor 180mg loading)
+- Anticoagulation: heparin or bivalirudin
+
+NSTEMI/UA Management:
+- Antiplatelets: aspirin + ticagrelor or clopidogrel
+- Anticoagulation: fondaparinux (preferred) or LMWH
+- Risk stratification for coronary angiography (urgent vs. early vs. elective)
+- Beta-blocker, statin, ACEi initiated early
+
+HEART Score for NSTEMI Risk Stratification:
+H: History (highly suspicious = 2, moderately suspicious = 1, slightly suspicious = 0)
+E: ECG (LBBB or ST deviation = 2, non-specific changes = 1, normal = 0)
+A: Age (≥65 = 2, 45-64 = 1, <45 = 0)
+R: Risk factors (≥3 factors or known atherosclerosis = 2, 1-2 factors = 1, none = 0)
+T: Troponin (>3x normal = 2, 1-3x normal = 1, ≤normal = 0)
+
+Score 0-3: Low risk (1.7% MACE) — early discharge possible
+Score 4-6: Moderate risk — observe, repeat troponin
+Score ≥7: High risk (50-65% MACE) — early invasive strategy
+
+STABLE ANGINA
+==============
+- Predictable chest pain with exertion/emotional stress; relieved by rest or GTN
+- Due to fixed coronary stenosis limiting blood supply during increased demand
+
+Management:
+- Sublingual GTN spray: acute relief (spray under tongue, repeat 5 minutes if persists; call 999 if no relief after 3 doses)
+- Beta-blockers: first-line for prophylaxis (atenolol, bisoprolol, metoprolol)
+- CCBs: alternative or additive (amlodipine, diltiazem)
+- Long-acting nitrates: isosorbide mononitrate; allow 12h nitrate-free period
+- Ivabradine, ranolazine: if beta-blocker intolerant or inadequate control
+- Antiplatelet: aspirin 75mg OD (secondary prevention)
+- Statin: atorvastatin 40-80mg (high intensity) for all with established CVD
+- Coronary revascularisation (PCI or CABG): if symptoms refractory to medical therapy
+
+CARDIOVASCULAR RISK ASSESSMENT
+================================
+
+Cardiovascular Risk Factors:
+Modifiable: hypertension, dyslipidaemia, diabetes, smoking, obesity, physical inactivity, unhealthy diet, excessive alcohol
+Non-modifiable: age, male sex, family history (first-degree relative: <55 men, <65 women), ethnicity
+
+Risk Stratification Tools:
+- QRISK3 (UK): 10-year CVD risk calculator
+- SCORE2 (Europe): fatal + non-fatal CVD events
+- AHA/ACC Pooled Cohort Equations (US)
+
+High-intensity statins (atorvastatin 40-80mg) indicated if:
+- QRISK3 ≥10% (UK NICE guidance)
+- Established ASCVD
+- Primary prevention in diabetes ≥40 years
+- Familial hypercholesterolaemia
+
+Lipid Targets:
+- High risk/established CVD: LDL-C <1.8 mmol/L or ≥50% reduction from baseline
+- Very high risk (MI, stroke): LDL-C <1.4 mmol/L
+- Primary prevention: LDL-C <3 mmol/L
+
+AORTIC DISSECTION
+==================
+- Medical emergency; mortality 1–2% per hour if untreated in Type A
+- Risk factors: hypertension, Marfan syndrome, bicuspid aortic valve, trauma, pregnancy
+
+Classic symptoms: sudden onset, tearing or ripping pain; maximum at onset; radiates to back (descending)
+Examination: BP discrepancy >20mmHg between arms; aortic regurgitation murmur; pulse deficits
+
+Type A (involves ascending aorta): emergency surgical repair
+Type B (descending only): medical management (pain control, BP reduction) unless complications
+
+PULMONARY EMBOLISM (PE)
+========================
+Risk factors: DVT, prolonged immobilisation, surgery, malignancy, OCP, pregnancy, long-haul flights
+
+Symptoms: acute dyspnoea (most common), pleuritic chest pain, haemoptysis, syncope
+Signs: tachycardia, tachypnoea, oxygen desaturation, DVT signs (calf tenderness, swelling)
+
+Wells Score for PE probability; D-dimer if low probability; CTPA if intermediate/high
+ECG: sinus tachycardia (most common); S1Q3T3 (S wave lead I, Q wave lead III, T inversion lead III) — not specific
+
+Treatment: anticoagulation — LMWH bridge to warfarin or DOAC (rivaroxaban, apixaban)
+Massive PE with haemodynamic instability: thrombolysis (alteplase)

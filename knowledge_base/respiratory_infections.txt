@@ -1,0 +1,128 @@
+RESPIRATORY INFECTIONS
+======================
+
+Overview
+--------
+Respiratory tract infections (RTIs) are among the most common reasons for primary care consultations.
+They are divided into upper RTI (URTI) and lower RTI (LRTI) and are predominantly viral in aetiology.
+
+Upper Respiratory Tract Infections (URTI)
+------------------------------------------
+Includes: common cold, pharyngitis, tonsillitis, sinusitis, otitis media, laryngitis
+
+Causative agents:
+- Viral (>80%): rhinovirus (most common), influenza A/B, RSV, coronavirus, adenovirus, parainfluenza
+- Bacterial: Group A Streptococcus (pharyngitis), Streptococcus pneumoniae, Haemophilus influenzae
+
+Clinical features:
+- Rhinorrhoea (nasal discharge), nasal congestion
+- Sore throat, odynophagia
+- Cough (initially dry, may become productive)
+- Low-grade fever (<38.5°C typically in viral)
+- Myalgia, malaise, headache
+- Hoarseness (laryngitis)
+
+CENTOR CRITERIA (pharyngitis — likelihood of Group A Strep):
+Score 1 point each: tonsillar exudate, tender anterior cervical lymphadenopathy, fever >38°C, absence of cough
+- Score 0–1: antibiotics NOT indicated (low bacterial probability)
+- Score 2–3: rapid antigen test recommended
+- Score ≥4: consider empirical antibiotics
+
+Lower Respiratory Tract Infections (LRTI)
+------------------------------------------
+Includes: acute bronchitis, pneumonia, exacerbations of COPD/asthma
+
+Acute Bronchitis:
+- Predominantly viral (influenza, RSV, rhinovirus)
+- Self-limiting (7–10 days)
+- Antibiotics NOT routinely indicated
+- Symptomatic: antipyretics, adequate hydration, cough suppressants
+
+Community-Acquired Pneumonia (CAP)
+------------------------------------
+Common pathogens:
+- Streptococcus pneumoniae (most common typical)
+- Mycoplasma pneumoniae, Chlamydophila pneumoniae (atypical)
+- Haemophilus influenzae (COPD patients)
+- Staphylococcus aureus (post-influenza)
+- Legionella pneumophila (water systems, travel)
+- Viruses: influenza, SARS-CoV-2
+
+Clinical features:
+- Productive cough (purulent sputum, haemoptysis)
+- Fever >38.5°C, rigors
+- Pleuritic chest pain
+- Dyspnoea, tachypnoea
+- Dullness to percussion, reduced breath sounds, bronchial breathing, crepitations on auscultation
+
+Investigations for Pneumonia:
+- CXR: consolidation, infiltrates
+- Sputum culture and sensitivity
+- Blood cultures (if hospitalised)
+- FBC: elevated WBC with neutrophilia (bacterial); lymphocytosis (viral)
+- CRP, procalcitonin
+- Urinary antigen: Streptococcus pneumoniae, Legionella
+- Pulse oximetry, ABG if O2 sats <94%
+
+Severity Assessment — CURB-65 Score:
+Score 1 point each:
+- Confusion (new)
+- Urea >7 mmol/L
+- Respiratory rate ≥30/min
+- Blood pressure systolic <90 or diastolic ≤60 mmHg
+- Age ≥65 years
+
+CURB-65 0–1: treat at home
+CURB-65 2: consider hospital admission
+CURB-65 ≥3: hospital admission required; consider ICU if ≥4–5
+
+Antibiotic Treatment for CAP:
+Low severity (community):
+- Amoxicillin 500mg TDS for 5 days (typical)
+- Doxycycline 200mg loading then 100mg OD for 5 days (atypical/penicillin allergy)
+- Clarithromycin 500mg BD for 5 days
+
+Moderate severity (hospital):
+- Amoxicillin + clarithromycin (to cover atypical)
+- Co-amoxiclav 1.2g IV TDS + clarithromycin if aspiration suspected
+
+Severe (ICU):
+- Co-amoxiclav/piperacillin-tazobactam IV + clarithromycin or levofloxacin IV
+
+Red Flags Requiring Urgent Evaluation:
+----------------------------------------
+- SpO2 <94% on room air
+- Respiratory rate >30/min
+- Systolic BP <90 mmHg
+- Altered mental status
+- Inability to swallow oral medications
+- Haemoptysis
+- Pleuritic chest pain suggesting empyema
+- Stridor (upper airway obstruction)
+- Age extremes (very young, very elderly)
+- Immunocompromised state
+
+Influenza
+----------
+- Sudden onset, high fever >38.5°C, myalgia, headache, dry cough
+- Oseltamivir (Tamiflu) if within 48h of symptom onset; indicated in high-risk groups
+- Annual influenza vaccination recommended for all ≥65 years, healthcare workers, high-risk groups
+
+COVID-19 Considerations:
+- Anosmia/ageusia (loss of smell/taste)
+- Varied presentation from asymptomatic to severe ARDS
+- Antivirals: nirmatrelvir/ritonavir (Paxlovid) in high-risk within 5 days of symptoms
+
+Symptomatic Management (Viral URTI):
+--------------------------------------
+- Paracetamol or ibuprofen for fever/pain
+- Adequate fluid intake (2–3 L/day)
+- Saline nasal irrigation for congestion
+- Honey for cough in adults (1–2 teaspoons)
+- Decongestants (pseudoephedrine) short-term only; avoid in hypertension
+
+Antibiotic Stewardship:
+------------------------
+- Antibiotics are NOT appropriate for viral URTI (common cold, influenza)
+- Overuse of antibiotics leads to antibiotic resistance
+- Use delayed prescribing strategy: provide prescription but advise to wait 48–72h

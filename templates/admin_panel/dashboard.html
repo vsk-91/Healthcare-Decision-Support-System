@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard — Healthcare DSS{% endblock %}
+{% block page_title %}Admin Dashboard{% endblock %}
+{% block content %}
+<div class="mb-4">
+  <h4 class="fw-bold mb-1">System Administration Dashboard</h4>
+  <p class="text-muted">Full system overview and management.</p>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-primary">{{ total_users }}</div><div class="stat-label">Total Users</div></div><div class="stat-icon bg-primary bg-opacity-10 text-primary"><i class="fas fa-users"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-info">{{ total_patients }}</div><div class="stat-label">Patients</div></div><div class="stat-icon bg-info bg-opacity-10 text-info"><i class="fas fa-user-injured"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-success">{{ total_doctors }}</div><div class="stat-label">Doctors</div></div><div class="stat-icon bg-success bg-opacity-10 text-success"><i class="fas fa-user-md"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-secondary">{{ total_staff }}</div><div class="stat-label">Staff</div></div><div class="stat-icon bg-secondary bg-opacity-10 text-secondary"><i class="fas fa-user-nurse"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-warning">{{ total_cases }}</div><div class="stat-label">Total Cases</div></div><div class="stat-icon bg-warning bg-opacity-10 text-warning"><i class="fas fa-folder"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-danger">{{ pending_cases }}</div><div class="stat-label">Active Cases</div></div><div class="stat-icon bg-danger bg-opacity-10 text-danger"><i class="fas fa-spinner"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-success">{{ completed_cases }}</div><div class="stat-label">Completed</div></div><div class="stat-icon bg-success bg-opacity-10 text-success"><i class="fas fa-check-circle"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num" style="color:#6f42c1">{{ ai_analyses }}</div><div class="stat-label">AI Analyses</div></div><div class="stat-icon" style="background:#f3eeff;color:#6f42c1"><i class="fas fa-brain"></i></div></div></div></div>
+</div>
+
+<div class="row g-3">
+  <div class="col-lg-6">
+    <div class="section-card h-100">
+      <div class="section-header"><i class="fas fa-chart-bar text-primary me-2"></i>Case Status Distribution</div>
+      <div class="section-body"><canvas id="caseChart" height="220"></canvas></div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="section-card h-100">
+      <div class="section-header d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-history text-secondary me-2"></i>Recent Audit Logs</span>
+        <a href="{% url 'administration:audit_log_list' %}" class="btn btn-sm btn-outline-secondary">View All</a>
+      </div>
+      <div class="section-body p-0">
+        {% if recent_logs %}
+        <table class="table table-sm mb-0">
+          <thead class="table-light"><tr><th>Action</th><th>User</th><th>Time</th></tr></thead>
+          <tbody>
+            {% for log in recent_logs %}
+            <tr>
+              <td><span class="badge bg-light text-dark border">{{ log.get_action_display }}</span></td>
+              <td class="small">{{ log.user.username|default:"System" }}</td>
+              <td class="small text-muted">{{ log.timestamp|date:"M d H:i" }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <div class="p-4 text-center text-muted small">No audit logs yet.</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const ctx = document.getElementById('caseChart');
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: {{ chart_labels|safe }},
+    datasets: [{
+      data: {{ chart_data|safe }},
+      backgroundColor: ['#0dcaf0','#0d6efd','#ffc107','#fd7e14','#6c757d','#198754','#6f42c1','#0d6efd','#198754','#198754'],
+      borderWidth: 2,
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { position: 'right' } } }
+});
+</script>
+{% endblock %}

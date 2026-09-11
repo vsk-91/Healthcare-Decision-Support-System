@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %}My Cases — Healthcare DSS{% endblock %}
+{% block page_title %}My Cases{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h4 class="fw-bold mb-1">My Health Cases</h4>
+    <p class="text-muted small mb-0">Track the status of all your submitted cases</p>
+  </div>
+  <a href="{% url 'patients:new_case' %}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>New Application</a>
+</div>
+
+{% if cases %}
+<div class="section-card">
+  <div class="section-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Case ID</th>
+            <th>Chief Complaint</th>
+            <th>Submitted</th>
+            <th>Status</th>
+            <th>Doctor</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for case in cases %}
+          <tr>
+            <td><code class="small text-primary">{{ case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+            <td>
+              <div class="fw-medium">{{ case.chief_complaint|truncatechars:45 }}</div>
+              <div class="text-muted small">{{ case.symptoms|truncatechars:50 }}</div>
+            </td>
+            <td class="small text-muted">{{ case.created_at|date:"M d, Y" }}</td>
+            <td><span class="badge badge-status-{{ case.status }} rounded-pill px-2">{{ case.get_status_display }}</span></td>
+            <td class="small">
+              {% if case.assigned_doctor %}{{ case.assigned_doctor.get_full_name }}
+              {% else %}<span class="text-muted">Unassigned</span>{% endif %}
+            </td>
+            <td class="text-end">
+              <a href="{% url 'patients:case_detail' case.case_id %}" class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-eye me-1"></i>View
+              </a>
+              {% if case.status == 'COMPLETED' %}
+              <a href="{% url 'patients:results' %}" class="btn btn-sm btn-outline-success ms-1">
+                <i class="fas fa-notes-medical me-1"></i>Result
+              </a>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% else %}
+<div class="section-card">
+  <div class="section-body text-center py-5">
+    <i class="fas fa-folder-open fa-4x text-muted opacity-25 mb-3"></i>
+    <h5 class="text-muted">No cases yet</h5>
+    <p class="text-muted">Submit your first health application to get started.</p>
+    <a href="{% url 'patients:new_case' %}" class="btn btn-primary mt-2"><i class="fas fa-plus me-2"></i>New Health Application</a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Register — Healthcare DSS{% endblock %}
+{% block auth_content %}
+<div class="row justify-content-center" style="margin-top:40px;">
+  <div class="col-md-7 col-lg-6">
+    <div class="text-center mb-4">
+      <div style="width:56px;height:56px;background:linear-gradient(135deg,#0d6efd,#0a58ca);border-radius:14px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px;">
+        <i class="fas fa-heartbeat text-white fa-xl"></i>
+      </div>
+      <h4 class="fw-bold">Patient Registration</h4>
+      <p class="text-muted small">Create your account to access healthcare services.</p>
+    </div>
+    <div class="card border-0 shadow-sm">
+      <div class="card-body p-4">
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% if form.errors %}
+          <div class="alert alert-danger py-2 small"><i class="fas fa-exclamation-circle me-2"></i>Please correct the errors below.</div>
+          {% endif %}
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">First Name</label>
+              <input type="text" name="first_name" class="form-control" placeholder="First name" value="{{ form.first_name.value|default:'' }}">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">Last Name</label>
+              <input type="text" name="last_name" class="form-control" placeholder="Last name" value="{{ form.last_name.value|default:'' }}">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-medium small">Username <span class="text-danger">*</span></label>
+            <input type="text" name="username" class="form-control{% if form.username.errors %} is-invalid{% endif %}" placeholder="Choose a username" value="{{ form.username.value|default:'' }}" required>
+            {% if form.username.errors %}<div class="invalid-feedback">{{ form.username.errors|first }}</div>{% endif %}
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-medium small">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="your@email.com" value="{{ form.email.value|default:'' }}">
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">Password <span class="text-danger">*</span></label>
+              <input type="password" name="password1" class="form-control{% if form.password1.errors %} is-invalid{% endif %}" placeholder="Password" required>
+              {% if form.password1.errors %}<div class="invalid-feedback">{{ form.password1.errors|first }}</div>{% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">Confirm Password <span class="text-danger">*</span></label>
+              <input type="password" name="password2" class="form-control{% if form.password2.errors %} is-invalid{% endif %}" placeholder="Confirm password" required>
+              {% if form.password2.errors %}<div class="invalid-feedback">{{ form.password2.errors|first }}</div>{% endif %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">Phone</label>
+              <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" value="{{ form.phone.value|default:'' }}">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label fw-medium small">Date of Birth</label>
+              <input type="date" name="date_of_birth" class="form-control" value="{{ form.date_of_birth.value|default:'' }}">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label fw-medium small">Gender</label>
+            <select name="gender" class="form-select">
+              <option value="">Select gender</option>
+              <option value="M" {% if form.gender.value == 'M' %}selected{% endif %}>Male</option>
+              <option value="F" {% if form.gender.value == 'F' %}selected{% endif %}>Female</option>
+              <option value="O" {% if form.gender.value == 'O' %}selected{% endif %}>Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 py-2 fw-medium"><i class="fas fa-user-plus me-2"></i>Create Account</button>
+        </form>
+        <hr class="my-3">
+        <p class="text-center text-muted small mb-0">Already have an account? <a href="{% url 'accounts:login' %}" class="text-primary fw-medium">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

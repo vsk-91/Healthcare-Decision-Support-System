@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Patient Cases — Doctor{% endblock %}
+{% block page_title %}Patient Cases{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div><h4 class="fw-bold mb-1">All Patient Cases</h4><p class="text-muted small mb-0">Review and manage submitted patient cases.</p></div>
+</div>
+
+<!-- Filter tabs -->
+<div class="mb-3">
+  <div class="d-flex gap-2 flex-wrap">
+    <a href="{% url 'doctors:case_list' %}" class="btn btn-sm {% if not status_filter %}btn-primary{% else %}btn-outline-secondary{% endif %}">All</a>
+    {% for status, label in status_choices %}
+    <a href="{% url 'doctors:case_list' %}?status={{ status }}" class="btn btn-sm {% if status_filter == status %}btn-primary{% else %}btn-outline-secondary{% endif %}">{{ label }}</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-body p-0">
+    {% if cases %}
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr><th>Case ID</th><th>Patient</th><th>Chief Complaint</th><th>Status</th><th>Submitted</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          {% for case in cases %}
+          <tr>
+            <td><code class="small text-primary">{{ case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+            <td>
+              <div class="fw-medium">{{ case.patient.get_full_name|default:case.patient.username }}</div>
+              <div class="text-muted small">{{ case.patient.username }}</div>
+            </td>
+            <td class="small">{{ case.chief_complaint|truncatechars:45 }}</td>
+            <td><span class="badge badge-status-{{ case.status }} rounded-pill">{{ case.get_status_display }}</span></td>
+            <td class="small text-muted">{{ case.created_at|date:"M d, Y" }}</td>
+            <td><a href="{% url 'doctors:case_detail' case.case_id %}" class="btn btn-sm btn-outline-primary"><i class="fas fa-stethoscope me-1"></i>Review</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="text-center py-5 text-muted"><i class="fas fa-inbox fa-3x opacity-25 mb-3 d-block"></i>No cases found.</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

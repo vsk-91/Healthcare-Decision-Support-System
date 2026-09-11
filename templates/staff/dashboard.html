@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Staff Dashboard — Healthcare DSS{% endblock %}
+{% block page_title %}Staff Dashboard{% endblock %}
+{% block content %}
+<div class="mb-4">
+  <h4 class="fw-bold mb-1">Welcome, {{ user.get_full_name|default:user.username }} 🔬</h4>
+  <p class="text-muted">Laboratory and report management overview.</p>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-warning">{{ pending_requests }}</div><div class="stat-label">Pending Requests</div></div><div class="stat-icon bg-warning bg-opacity-10 text-warning"><i class="fas fa-clock"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-info">{{ in_progress }}</div><div class="stat-label">In Progress</div></div><div class="stat-icon bg-info bg-opacity-10 text-info"><i class="fas fa-spinner"></i></div></div></div></div>
+  <div class="col-sm-6 col-xl-3"><div class="stat-card"><div class="d-flex justify-content-between align-items-start"><div><div class="stat-num text-success">{{ my_reports_count }}</div><div class="stat-label">My Reports</div></div><div class="stat-icon bg-success bg-opacity-10 text-success"><i class="fas fa-file-medical"></i></div></div></div></div>
+</div>
+
+<div class="section-card">
+  <div class="section-header d-flex justify-content-between align-items-center">
+    <span><i class="fas fa-flask text-warning me-2"></i>Pending Test Requests</span>
+    <a href="{% url 'staff:test_requests' %}" class="btn btn-sm btn-outline-warning">View All</a>
+  </div>
+  <div class="section-body p-0">
+    {% if pending_list %}
+    <table class="table table-hover mb-0">
+      <thead class="table-light"><tr><th>Test Type</th><th>Patient Case</th><th>Doctor</th><th>Requested</th><th></th></tr></thead>
+      <tbody>
+        {% for req in pending_list %}
+        <tr>
+          <td class="fw-medium"><i class="fas fa-vial me-1 text-muted"></i>{{ req.get_test_type_display }}</td>
+          <td class="small text-muted"><code>{{ req.case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+          <td class="small">Dr. {{ req.doctor.get_full_name|default:req.doctor.username }}</td>
+          <td class="small text-muted">{{ req.requested_at|date:"M d, Y" }}</td>
+          <td><a href="{% url 'staff:test_request_detail' req.id %}" class="btn btn-sm btn-warning"><i class="fas fa-upload me-1"></i>Upload Report</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="text-center py-5 text-muted"><i class="fas fa-check-circle fa-3x opacity-25 mb-3 d-block"></i>No pending requests. All caught up!</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

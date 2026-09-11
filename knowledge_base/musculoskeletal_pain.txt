@@ -1,0 +1,118 @@
+MUSCULOSKELETAL PAIN — BACK PAIN, ARTHRITIS, AND JOINT DISORDERS
+=================================================================
+
+LOW BACK PAIN (LBP)
+=====================
+
+Epidemiology
+------------
+Low back pain is the leading cause of disability worldwide and the most common reason for absence from work.
+Approximately 80% of adults experience LBP at some point in their lifetime.
+
+Classification
+--------------
+1. Non-specific (mechanical) LBP (90%): no identifiable structural cause
+2. Specific LBP (10%): associated with specific pathology (disc herniation, stenosis, spondylolisthesis)
+3. Secondary LBP: referred pain from visceral causes (renal, aortic, gynaecological)
+
+Red Flags — Serious Pathology:
+- Cauda equina syndrome: bilateral leg pain/weakness, saddle anaesthesia, bowel/bladder dysfunction — EMERGENCY
+- Spinal cord compression: progressive neurological deficit
+- Cancer (spinal metastases): age >50, history of malignancy, unexplained weight loss, night pain
+- Infection (discitis/osteomyelitis): fever, IV drug use, recent spinal procedure
+- Fracture: trauma, osteoporosis, long-term steroids
+- Inflammatory (ankylosing spondylitis): age <40, morning stiffness >45min, improves with exercise
+
+Clinical Assessment
+-------------------
+- Site, radiation (leg pain, sciatica — L4/L5/S1), character, severity (VAS/NRS 0-10)
+- Duration: acute (<6 weeks), subacute (6-12 weeks), chronic (>12 weeks)
+- Aggravating/relieving factors
+- Neurological symptoms: weakness, numbness, tingling in limbs
+- Bladder/bowel dysfunction (cauda equina)
+- Previous episodes, treatments tried
+
+Examination:
+- Posture and gait
+- Range of motion: flexion, extension, lateral flexion
+- Palpation: paravertebral muscle spasm, sacroiliac tenderness
+- Straight leg raise (SLR) test: positive if radiating pain <60° — suggests disc herniation/nerve root compression
+- Neurological: power, sensation, reflexes in lower limbs (L3, L4, L5, S1 distribution)
+
+Investigations
+--------------
+- Routine imaging NOT required for non-specific acute LBP
+- MRI spine: indicated if red flags, neurological deficit, or considering surgery
+- X-ray lumbosacral spine: if fracture, spondylolisthesis, or inflammatory suspected
+- Bloods: ESR, CRP, alkaline phosphatase if infection/malignancy suspected; HLA-B27 for inflammatory
+
+Treatment — Non-Specific LBP
+-------------------------------
+First-line (Evidence-based):
+1. Reassurance and patient education: positive messages about recovery
+2. Encourage activity: bed rest is HARMFUL; return to normal activities as soon as possible
+3. Heat application: effective for acute muscle spasm relief
+
+Analgesia:
+- Step 1: Paracetamol 1g QDS (evidence limited but safe first step)
+- Step 2: NSAIDs (ibuprofen, naproxen, diclofenac): most effective for LBP
+  Use lowest effective dose for shortest time; gastroprotection with PPI
+- Step 3: Short-term muscle relaxants (diazepam 2–5mg nocte; methocarbamol)
+  Only 1–2 weeks; avoid long-term
+- Step 4: Weak opioids (tramadol, codeine/paracetamol combinations): short-term only
+- Avoid: strong opioids for non-specific LBP (risk > benefit)
+
+Physiotherapy and Exercise:
+- Active exercise programmes (individualised physiotherapy)
+- Core strengthening, flexibility, aerobic exercise
+- Manual therapy (spinal manipulation): short-term benefit
+- McKenzie method for disc-related pain
+
+Psychological:
+- Cognitive behavioural therapy (CBT) for chronic LBP with psychosocial "yellow flags"
+- Yellow flags (risk factors for chronicity): fear-avoidance beliefs, depression, poor coping,
+  job dissatisfaction, legal/compensation issues
+
+Chronic LBP (>12 weeks):
+- Multidisciplinary pain management programmes
+- Amitriptyline/duloxetine for neuropathic component
+- Gabapentin/pregabalin: evidence limited; use with caution
+- Epidural steroid injections: for radiculopathy (temporary benefit)
+- Surgery: only for structural pathology with neurological compromise
+
+OSTEOARTHRITIS (OA)
+====================
+- Most common joint disease; degenerative articular cartilage loss
+- Commonly affects: knee, hip, hand (DIP joints), spine
+
+Symptoms:
+- Pain: use-related, worsens with activity, relieved by rest
+- Stiffness: brief morning stiffness (<30 minutes)
+- Reduced range of motion, crepitus on movement
+
+Management:
+- Core: patient education, weight loss (reduces knee load), physiotherapy, exercise
+- Pharmacological: topical NSAIDs (knee/hand), oral NSAIDs, paracetamol, duloxetine
+- Intra-articular corticosteroid injections: short-term relief
+- Joint replacement (TKR/THR): end-stage OA with failed conservative management
+
+RHEUMATOID ARTHRITIS (RA)
+===========================
+- Systemic autoimmune inflammatory arthritis
+- Features: symmetric small joint polyarthritis, prolonged morning stiffness (>45 min)
+- Joints: MCP, PIP joints; wrists, knees, feet
+- Extra-articular: rheumatoid nodules, serositis, vasculitis, interstitial lung disease
+
+Investigations:
+- RF (rheumatoid factor): 70% positive
+- Anti-CCP antibodies: highly specific (95%)
+- ESR, CRP (elevated)
+- X-rays: erosions, periarticular osteopenia (late)
+
+Treatment:
+- DMARDs (Disease-Modifying Antirheumatic Drugs): methotrexate (first-line), hydroxychloroquine,
+  sulfasalazine, leflunomide
+- Biologics: anti-TNF (etanercept, adalimumab); if inadequate response to DMARDs
+- JAK inhibitors: tofacitinib, baricitinib
+- Steroids: bridging therapy; intra-articular for acute flares
+- Monitor: liver function (methotrexate), infection risk (biologics), FBC

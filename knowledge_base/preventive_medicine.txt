@@ -1,0 +1,159 @@
+PREVENTIVE MEDICINE AND HEALTH SCREENING
+=========================================
+
+Overview
+--------
+Preventive medicine aims to reduce the incidence, prevalence, and consequences of disease through
+early detection (screening), immunisation, lifestyle modification, and risk factor management.
+It encompasses primary prevention (preventing disease onset), secondary prevention (early detection),
+and tertiary prevention (reducing disability from established disease).
+
+KEY LIFESTYLE INTERVENTIONS
+============================
+
+Physical Activity
+-----------------
+WHO recommendations (adults 18–64 years):
+- ≥150–300 minutes of moderate-intensity aerobic activity per week
+  OR 75–150 minutes of vigorous-intensity aerobic activity
+- Muscle-strengthening activities (resistance exercise): ≥2 days/week
+- Reduce prolonged sedentary behaviour
+
+Benefits of regular exercise:
+- Reduces risk of: cardiovascular disease (35%), T2DM (50%), colon cancer (30%), breast cancer (20%)
+- Reduces all-cause mortality by 30–35%
+- Mental health: reduces depression and anxiety
+- Bone health: osteoporosis prevention
+- Weight management: each 1kg weight loss by exercise reduces CVD risk
+
+Types of exercise:
+- Aerobic (cardiovascular): walking, running, swimming, cycling — improves VO2max, reduces BP and lipids
+- Resistance/strength training: reduces insulin resistance, improves muscle mass
+- Flexibility: yoga, stretching — reduces injury risk
+- Balance exercises: falls prevention in elderly
+
+Nutrition and Diet
+------------------
+Mediterranean Diet (highest evidence for CVD prevention):
+- High: olive oil, vegetables, fruit, legumes, whole grains, fish
+- Moderate: poultry, dairy
+- Low: red meat, processed food, refined sugars
+- Reduces CVD risk by 30%, T2DM by 20%, all-cause mortality
+
+DASH Diet (Dietary Approaches to Stop Hypertension):
+- High in: fruits, vegetables, whole grains, low-fat dairy
+- Limits: saturated fat, sodium (<2300mg/day), added sugars
+- Reduces systolic BP by 8–14 mmHg
+
+General dietary principles:
+- 5 portions fruit and vegetables daily
+- Oily fish ≥2x/week (omega-3 fatty acids: sardines, mackerel, salmon)
+- Reduce ultra-processed foods, ready meals, fast food
+- Limit red meat (<70g/day); avoid processed meat (carcinogenic)
+- Whole grains (bread, rice, pasta) over refined carbohydrates
+- Adequate water intake: 6–8 glasses/day
+
+Smoking Cessation
+------------------
+Smoking causes 50% of all avoidable deaths; increases risk of:
+- Lung cancer: 15–25x increased risk
+- CVD: 2–4x increased risk
+- COPD: major cause
+- 17 other cancer types
+
+Benefits of quitting:
+- After 48 hours: nicotine cleared from body
+- After 1 year: CVD risk halved
+- After 10 years: lung cancer risk halved
+- After 15 years: CVD risk equivalent to non-smoker
+
+Cessation strategies (highest success = combination):
+1. Behavioural support (individual/group counselling)
+2. Nicotine Replacement Therapy (NRT): patch, gum, inhaler, nasal spray — doubles quit rates
+3. Varenicline (Champix): most effective pharmacotherapy (3x success rate); partial nicotine agonist
+4. Bupropion: alternative to NRT; contraindicated in epilepsy, eating disorders
+5. E-cigarettes: NICE 2021 endorses as cessation aid; evidence growing
+
+Alcohol
+-------
+UK low-risk guidelines: ≤14 units/week; spread over ≥3 days; avoid binge drinking
+1 unit = 10mL pure alcohol = half pint (3.5% beer), small glass wine (125mL, 9%), 25mL spirit
+
+Health risks of excess alcohol:
+- Liver disease (fatty liver, hepatitis, cirrhosis)
+- 7 cancer types (mouth, throat, oesophagus, breast, bowel)
+- Hypertension, cardiomyopathy
+- Mental health: depression, anxiety, psychosis
+- AUDIT-C screening questionnaire (score ≥5 men, ≥4 women suggests harmful use)
+
+CANCER SCREENING
+=================
+
+Cervical Cancer Screening (Smear Test):
+- UK: every 3 years (25–49 years); every 5 years (50–64 years)
+- HPV primary testing + cytology if HPV positive
+- HPV vaccination: Gardasil-9 (types 6, 11, 16, 18, 31, 33, 45, 52, 58) — school age girls and boys
+
+Breast Cancer Screening:
+- UK NHS mammography: every 3 years (50–70 years)
+- Self-examination: not formally recommended but awareness encouraged
+- High-risk: BRCA1/2 carriers — annual MRI from age 30
+
+Colorectal Cancer Screening:
+- UK: Faecal Immunochemical Test (FIT) kit, home-based, every 2 years (50–74 years)
+- Positive FIT → colonoscopy
+- Lynch syndrome/family history → earlier/more frequent colonoscopy
+
+Prostate Cancer:
+- PSA test available on request (NHS); no formal UK screening programme
+- Controversially high false positive rate leading to overdiagnosis and overtreatment
+
+Lung Cancer Screening (UK NLST equivalent):
+- Low-dose CT: being rolled out for high-risk smokers (55–74 years, 30+ pack-year history)
+
+CARDIOVASCULAR SCREENING
+==========================
+NHS Health Check (England):
+- Age 40–74 years, no known cardiovascular disease
+- Every 5 years
+- Assesses: CVD risk (QRISK3), diabetes risk, BMI, BP, cholesterol, smoking, alcohol
+
+Blood Pressure Monitoring:
+- All adults >40 years: checked at least every 5 years
+- If elevated: every year
+- Home BP monitoring: more accurate than clinic measurement
+
+Cholesterol Screening:
+- Fasting lipid profile: total cholesterol, LDL, HDL, triglycerides
+- All adults with CVD risk factors; routine screening from age 40
+
+Diabetes Screening:
+- FPG or HbA1c: adults with risk factors (obesity, family history, hypertension, previous GDM)
+- NHS Diabetes Prevention Programme: for pre-diabetes (impaired glucose)
+
+IMMUNISATION (UK Routine Schedule Adults)
+==========================================
+- Influenza vaccine: annual — all ≥65 years, high-risk groups, healthcare workers
+- Pneumococcal vaccine (PPV23): once at 65; once for clinical risk groups
+- Shingles (herpes zoster): Shingrix 2-dose — age 70 (UK); 50+ (US)
+- COVID-19: updated boosters for vulnerable groups (JCVI guidance)
+- Td/IPV: tetanus booster if travelling to endemic areas or wound risk
+
+OBESITY AND WEIGHT MANAGEMENT
+================================
+Definitions (BMI):
+- Underweight: <18.5
+- Healthy: 18.5–24.9
+- Overweight: 25.0–29.9
+- Obesity Class I: 30.0–34.9
+- Obesity Class II: 35.0–39.9
+- Obesity Class III (morbid): ≥40.0
+
+Note: BMI less accurate in athletes (muscle mass), elderly, South Asian (risk at lower BMI)
+Waist circumference: >94cm (men) / >80cm (women) = increased metabolic risk
+
+Interventions:
+- Lifestyle: diet + exercise + behavioural support first-line
+- Pharmacotherapy: orlistat (inhibits fat absorption); GLP-1 agonists (semaglutide — highly effective)
+- Bariatric surgery: if BMI ≥40, or ≥35 with comorbidities, failed non-surgical approach
+  Options: Roux-en-Y gastric bypass, sleeve gastrectomy, adjustable gastric band

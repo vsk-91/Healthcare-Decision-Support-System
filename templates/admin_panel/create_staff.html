@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block title %}Create Staff — Admin{% endblock %}
+{% block page_title %}Create Staff Account{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-lg-8 col-xl-7">
+
+  <nav class="mb-3" aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+      <li class="breadcrumb-item"><a href="{% url 'administration:dashboard' %}">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'administration:user_list' %}">User Management</a></li>
+      <li class="breadcrumb-item active">Create Staff</li>
+    </ol>
+  </nav>
+
+  <div class="section-card">
+    <div class="section-header">
+      <i class="fas fa-clipboard-list text-secondary"></i>
+      Create Staff Account
+      <span class="badge bg-secondary ms-auto">Admin Only</span>
+    </div>
+    <div class="section-body">
+
+      <div class="alert alert-info d-flex align-items-start gap-2 py-2 mb-4 small">
+        <i class="fas fa-info-circle mt-1"></i>
+        <div>
+          This account will be assigned <strong>role = STAFF</strong> automatically.
+          Staff can receive test requests, upload reports, and assist in the clinical workflow.
+        </div>
+      </div>
+
+      <form method="post" novalidate>
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger small">
+          {% for error in form.non_field_errors %}<div>{{ error }}</div>{% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- ── Staff Information ── -->
+        <h6 class="text-muted text-uppercase mb-3 small fw-bold" style="letter-spacing:.06em;">
+          <i class="fas fa-user me-2"></i>Staff Information
+        </h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">First Name <span class="text-danger">*</span></label>
+            <input type="text" name="first_name"
+                   class="form-control{% if form.first_name.errors %} is-invalid{% endif %}"
+                   value="{{ form.first_name.value|default:'' }}" required>
+            {% if form.first_name.errors %}
+            <div class="invalid-feedback">{{ form.first_name.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Last Name <span class="text-danger">*</span></label>
+            <input type="text" name="last_name"
+                   class="form-control{% if form.last_name.errors %} is-invalid{% endif %}"
+                   value="{{ form.last_name.value|default:'' }}" required>
+            {% if form.last_name.errors %}
+            <div class="invalid-feedback">{{ form.last_name.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Username <span class="text-danger">*</span></label>
+            <input type="text" name="username"
+                   class="form-control{% if form.username.errors %} is-invalid{% endif %}"
+                   value="{{ form.username.value|default:'' }}" required autocomplete="off">
+            <div class="form-text">Used for login. Must be unique.</div>
+            {% if form.username.errors %}
+            <div class="invalid-feedback">{{ form.username.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Email</label>
+            <input type="email" name="email" class="form-control"
+                   value="{{ form.email.value|default:'' }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Phone</label>
+            <input type="text" name="phone" class="form-control"
+                   value="{{ form.phone.value|default:'' }}">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Account Status</label>
+            <select name="is_active" class="form-select">
+              <option value="True">Active</option>
+              <option value="False">Inactive</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- ── Role Details ── -->
+        <h6 class="text-muted text-uppercase mb-3 small fw-bold" style="letter-spacing:.06em;">
+          <i class="fas fa-id-badge me-2"></i>Role Details
+        </h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Staff Type</label>
+            <select name="staff_type" class="form-select">
+              <option value="">--- Select Staff Type ---</option>
+              <option value="LAB">Laboratory Staff</option>
+              <option value="NURSING">Nursing Staff</option>
+              <option value="RECEPTION">Reception Staff</option>
+              <option value="RECORDS">Medical Records Staff</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Department</label>
+            <input type="text" name="department" class="form-control"
+                   value="{{ form.department.value|default:'' }}"
+                   placeholder="e.g. Radiology, Laboratory">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Employee ID</label>
+            <input type="text" name="employee_id" class="form-control"
+                   value="{{ form.employee_id.value|default:'' }}">
+          </div>
+        </div>
+
+        <!-- ── Credentials ── -->
+        <h6 class="text-muted text-uppercase mb-3 small fw-bold" style="letter-spacing:.06em;">
+          <i class="fas fa-key me-2"></i>Login Credentials
+        </h6>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Password <span class="text-danger">*</span></label>
+            <input type="password" name="password"
+                   class="form-control{% if form.password.errors %} is-invalid{% endif %}"
+                   autocomplete="new-password" required>
+            {% if form.password.errors %}
+            <div class="invalid-feedback">{{ form.password.errors.0 }}</div>{% endif %}
+          </div>
+          <div class="col-md-6">
+            <label class="form-label small fw-semibold">Confirm Password <span class="text-danger">*</span></label>
+            <input type="password" name="password_confirm"
+                   class="form-control{% if form.password_confirm.errors %} is-invalid{% endif %}"
+                   autocomplete="new-password" required>
+            {% if form.password_confirm.errors %}
+            <div class="invalid-feedback">{{ form.password_confirm.errors.0 }}</div>{% endif %}
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 justify-content-end border-top pt-3 mt-2">
+          <a href="{% url 'administration:user_list' %}" class="btn btn-outline-secondary">
+            <i class="fas fa-times me-1"></i>Cancel
+          </a>
+          <button type="submit" class="btn btn-secondary px-4">
+            <i class="fas fa-user-nurse me-2"></i>Create Staff Account
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>
+</div>
+{% endblock %}

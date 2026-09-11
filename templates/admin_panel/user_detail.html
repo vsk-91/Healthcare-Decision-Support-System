@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}User Profile — Admin{% endblock %}
+{% block page_title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-lg-8">
+
+  <nav class="mb-3" aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+      <li class="breadcrumb-item"><a href="{% url 'administration:user_list' %}">User Management</a></li>
+      <li class="breadcrumb-item active">{{ target_user.username }}</li>
+    </ol>
+  </nav>
+
+  <!-- Header card -->
+  <div class="section-card mb-3">
+    <div class="section-body">
+      <div class="d-flex align-items-start gap-3">
+        <div style="width:60px;height:60px;border-radius:14px;
+                    background:linear-gradient(135deg,#0E3448,#1565C0);
+                    display:flex;align-items:center;justify-content:center;
+                    color:#fff;font-size:1.4rem;flex-shrink:0;">
+          <i class="fas
+            {% if target_user.role == 'DOCTOR' %}fa-stethoscope
+            {% elif target_user.role == 'STAFF' %}fa-clipboard-list
+            {% elif target_user.role == 'ADMIN' %}fa-shield-alt
+            {% else %}fa-user-injured{% endif %}"></i>
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <h5 class="mb-0 fw-bold">
+              {% if target_user.role == 'DOCTOR' %}Dr. {% endif %}
+              {{ target_user.get_full_name|default:target_user.username }}
+            </h5>
+            <span class="badge rounded-pill
+              {% if target_user.role == 'ADMIN' %}bg-danger
+              {% elif target_user.role == 'DOCTOR' %}bg-primary
+              {% elif target_user.role == 'STAFF' %}bg-secondary
+              {% else %}bg-info text-dark{% endif %}">
+              {{ target_user.role }}
+            </span>
+            {% if target_user.is_active %}
+            <span class="badge bg-success rounded-pill">Active</span>
+            {% else %}
+            <span class="badge bg-danger rounded-pill">Inactive</span>
+            {% endif %}
+          </div>
+          <div class="text-muted small">@{{ target_user.username }}</div>
+          {% if target_user.email %}
+          <div class="text-muted small"><i class="fas fa-envelope me-1"></i>{{ target_user.email }}</div>
+          {% endif %}
+          {% if target_user.phone %}
+          <div class="text-muted small"><i class="fas fa-phone me-1"></i>{{ target_user.phone }}</div>
+          {% endif %}
+        </div>
+        <!-- Actions -->
+        <div class="d-flex gap-2">
+          <a href="{% url 'administration:user_edit' target_user.id %}" class="btn btn-outline-primary btn-sm">
+            <i class="fas fa-edit me-1"></i>Edit
+          </a>
+          {% if target_user.role != 'PATIENT' %}
+          <a href="{% url 'administration:user_reset_password' target_user.id %}" class="btn btn-outline-warning btn-sm">
+            <i class="fas fa-key me-1"></i>Reset Password
+          </a>
+          {% endif %}
+          <form method="post" action="{% url 'administration:user_toggle' target_user.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm {% if target_user.is_active %}btn-outline-danger{% else %}btn-outline-success{% endif %}"
+                    {% if target_user.id == request.user.id %}disabled{% endif %}>
+              <i class="fas {% if target_user.is_active %}fa-ban{% else %}fa-check{% endif %} me-1"></i>
+              {% if target_user.is_active %}Deactivate{% else %}Activate{% endif %}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Basic info -->
+  <div class="section-card mb-3">
+    <div class="section-header"><i class="fas fa-user me-2"></i>Account Information</div>
+    <div class="section-body">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="info-label">Username</div>
+          <div class="info-value fw-medium">{{ target_user.username }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Role</div>
+          <div class="info-value">{{ target_user.role }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Joined</div>
+          <div class="info-value">{{ target_user.date_joined|date:"M d, Y" }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Last Login</div>
+          <div class="info-value">{{ target_user.last_login|date:"M d, Y H:i"|default:"Never" }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Gender</div>
+          <div class="info-value">{{ target_user.get_gender_display|default:"—" }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Date of Birth</div>
+          <div class="info-value">{{ target_user.date_of_birth|date:"M d, Y"|default:"—" }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Doctor profile -->
+  {% if doctor_profile %}
+  <div class="section-card mb-3">
+    <div class="section-header"><i class="fas fa-stethoscope text-primary me-2"></i>Doctor Profile</div>
+    <div class="section-body">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="info-label">Specialization</div>
+          <div class="info-value">{{ doctor_profile.specialization|default:"—" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-label">Medical Registration No.</div>
+          <div class="info-value">{{ doctor_profile.license_number|default:"—" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-label">Department</div>
+          <div class="info-value">{{ doctor_profile.department|default:"—" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-label">Experience</div>
+          <div class="info-value">{{ doctor_profile.experience_years }} year(s)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Staff profile -->
+  {% if staff_profile %}
+  <div class="section-card mb-3">
+    <div class="section-header"><i class="fas fa-clipboard-list text-secondary me-2"></i>Staff Profile</div>
+    <div class="section-body">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="info-label">Department</div>
+          <div class="info-value">{{ staff_profile.department|default:"—" }}</div>
+        </div>
+        <div class="col-md-6">
+          <div class="info-label">Employee ID</div>
+          <div class="info-value">{{ staff_profile.employee_id|default:"—" }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Patient profile -->
+  {% if patient_profile %}
+  <div class="section-card mb-3">
+    <div class="section-header"><i class="fas fa-user-injured text-info me-2"></i>Patient Profile</div>
+    <div class="section-body">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="info-label">Blood Group</div>
+          <div class="info-value">{{ patient_profile.blood_group|default:"—" }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Emergency Contact</div>
+          <div class="info-value">{{ patient_profile.emergency_contact|default:"—" }}</div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-label">Insurance No.</div>
+          <div class="info-value">{{ patient_profile.insurance_number|default:"—" }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="d-flex gap-2">
+    <a href="{% url 'administration:user_list' %}" class="btn btn-outline-secondary btn-sm">
+      <i class="fas fa-arrow-left me-1"></i>Back to Users
+    </a>
+  </div>
+
+</div>
+</div>
+{% endblock %}

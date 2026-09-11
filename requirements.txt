@@ -1,0 +1,17 @@
+Django==5.2.15
+djangorestframework==3.18.0
+Pillow==11.2.1
+python-dotenv==1.2.3
+django-environ==0.14.0
+
+# AI — Google Gemini (LLM + embeddings for RAG)
+google-genai>=1.0.0
+
+# RAG vector database
+chromadb>=0.4.0
+
+# ML prediction layer (works offline, no API key required)
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+joblib>=1.3.0

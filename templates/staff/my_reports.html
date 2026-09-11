@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}My Reports — Staff{% endblock %}
+{% block page_title %}My Uploaded Reports{% endblock %}
+{% block content %}
+<div class="mb-4"><h4 class="fw-bold mb-1">My Reports</h4><p class="text-muted">All medical reports you have uploaded.</p></div>
+<div class="section-card">
+  <div class="section-body p-0">
+    {% if reports %}
+    <table class="table table-hover mb-0">
+      <thead class="table-light"><tr><th>Title</th><th>Type</th><th>Case</th><th>Date</th><th>Status</th><th>Verification</th></tr></thead>
+      <tbody>
+        {% for report in reports %}
+        <tr>
+          <td class="fw-medium">{{ report.title }}</td>
+          <td class="small">{{ report.get_report_type_display }}</td>
+          <td><code class="small">{{ report.case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+          <td class="small text-muted">{{ report.report_date }}</td>
+          <td><span class="badge rounded-pill {% if report.status == 'VERIFIED' %}bg-success{% elif report.status == 'REJECTED' %}bg-danger{% else %}bg-secondary{% endif %}">{{ report.get_status_display }}</span></td>
+          <td class="small">
+            {% if report.status == 'REJECTED' %}
+            <span class="text-danger"><i class="fas fa-times-circle me-1"></i>{{ report.verification_notes|truncatechars:40 }}</span>
+            {% elif report.status == 'VERIFIED' %}
+            <span class="text-success"><i class="fas fa-check-circle me-1"></i>Verified by Dr. {{ report.verified_by.get_full_name|default:"-" }}</span>
+            {% else %}<span class="text-muted">Awaiting review</span>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="text-center py-5 text-muted"><i class="fas fa-file-medical fa-3x opacity-25 mb-3 d-block"></i>No reports uploaded yet.</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

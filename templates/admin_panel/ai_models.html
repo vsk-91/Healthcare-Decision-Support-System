@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}AI Models — Admin{% endblock %}
+{% block page_title %}AI Model Management{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div><h4 class="fw-bold mb-1">AI Models</h4><p class="text-muted small mb-0">Register and manage AI/ML models for clinical analysis.</p></div>
+  <a href="{% url 'administration:ai_model_create' %}" class="btn btn-primary"><i class="fas fa-plus me-2"></i>Register Model</a>
+</div>
+
+<div class="section-card">
+  <div class="section-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-light"><tr><th>Name</th><th>Version</th><th>Type</th><th>Status</th><th>Accuracy</th><th>F1 Score</th><th>Trained</th><th>Actions</th></tr></thead>
+      <tbody>
+        {% for model in models %}
+        <tr>
+          <td>
+            <div class="fw-medium">{{ model.name }}</div>
+            <div class="small text-muted">{{ model.description|truncatechars:40 }}</div>
+          </td>
+          <td><span class="badge bg-light text-dark border">v{{ model.version }}</span></td>
+          <td class="small">{{ model.get_model_type_display }}</td>
+          <td>
+            <span class="badge rounded-pill {% if model.status == 'ACTIVE' %}bg-success{% elif model.status == 'TRAINING' %}bg-warning text-dark{% elif model.status == 'FAILED' %}bg-danger{% else %}bg-secondary{% endif %}">
+              {% if model.status == 'TRAINING' %}<i class="fas fa-spinner fa-spin me-1"></i>{% endif %}{{ model.status }}
+            </span>
+          </td>
+          <td>
+            {% if model.accuracy %}
+            <div class="d-flex align-items-center gap-2">
+              <div style="width:60px;background:#e9ecef;border-radius:50px;height:6px;">
+                <div style="width:{% widthratio model.accuracy 1 100 %}%;background:#198754;border-radius:50px;height:6px;"></div>
+              </div>
+              <span class="small">{{ model.accuracy|floatformat:2 }}</span>
+            </div>
+            {% else %}<span class="text-muted small">N/A</span>{% endif %}
+          </td>
+          <td class="small">{% if model.f1_score %}{{ model.f1_score|floatformat:2 }}{% else %}—{% endif %}</td>
+          <td class="small text-muted">{{ model.trained_at|date:"M d, Y"|default:"Not trained" }}</td>
+          <td>
+            <div class="d-flex gap-1">
+              {% if model.status != 'ACTIVE' %}
+              <form method="post" action="{% url 'administration:ai_model_train' model.id %}">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-success py-0 px-2" title="Train / Activate"><i class="fas fa-play me-1"></i>Train</button>
+              </form>
+              {% else %}
+              <span class="badge bg-success py-2"><i class="fas fa-check me-1"></i>Active</span>
+              {% endif %}
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="8" class="text-center text-muted py-5"><i class="fas fa-brain fa-3x opacity-25 d-block mb-3"></i>No AI models registered yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

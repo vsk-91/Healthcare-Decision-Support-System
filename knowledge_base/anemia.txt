@@ -1,0 +1,113 @@
+IRON DEFICIENCY ANAEMIA
+========================
+
+Overview
+--------
+Iron deficiency anaemia (IDA) is the most common nutritional deficiency worldwide, affecting
+approximately 1–2 billion people. It occurs when iron stores are depleted, leading to reduced
+haemoglobin synthesis and microcytic hypochromic anaemia.
+
+Causes and Risk Groups
+-----------------------
+1. Increased iron loss (most common cause in adults):
+   - Gastrointestinal bleeding: peptic ulcer, colorectal cancer, IBD, oesophageal varices,
+     angiodysplasia, use of NSAIDs/aspirin
+   - Menstrual blood loss (heavy periods — most common in premenopausal women)
+   - Other: haematuria, pulmonary haemosiderosis, regular blood donation
+
+2. Inadequate intake:
+   - Restrictive diets (vegan/vegetarian without supplementation)
+   - Poverty, food insecurity
+   - Eating disorders
+
+3. Malabsorption:
+   - Coeliac disease (most important to exclude in adults)
+   - Gastrectomy, bariatric surgery
+   - H. pylori infection
+   - Inflammatory bowel disease
+
+4. Increased demand:
+   - Pregnancy (increased requirement for foetal development)
+   - Rapid growth (infants, adolescents)
+
+Clinical Features
+------------------
+Symptoms (relate to severity and rate of onset):
+- Fatigue, lethargy, reduced exercise tolerance
+- Pallor (skin, conjunctivae, nail beds, palmar creases)
+- Dyspnoea on exertion
+- Palpitations, tachycardia
+- Headache, poor concentration, irritability
+- Cold intolerance
+
+Specific features of iron deficiency (beyond anaemia):
+- Angular stomatitis (cracking at corners of mouth)
+- Glossitis (smooth, red, painful tongue)
+- Koilonychia (spoon-shaped nails)
+- Pica (craving non-food items: ice, clay, soil — pagophagia)
+- Plummer-Vinson/Paterson-Kelly syndrome (oesophageal web + IDA)
+- Restless legs syndrome association
+
+Laboratory Investigations
+--------------------------
+Full Blood Count:
+- Low haemoglobin (Hb): <130 g/L men; <120 g/L women; <110 g/L pregnancy
+- Low MCV (microcytosis): <80 fL
+- Low MCH (hypochromia)
+- Elevated RDW (red cell distribution width) — anisocytosis
+- Low reticulocyte count
+
+Iron Studies:
+- Serum ferritin: LOW (<12–30 μg/L) — most specific for iron deficiency
+  (Note: ferritin is an acute phase reactant — may be falsely normal in inflammation)
+- Serum iron: LOW
+- TIBC (total iron-binding capacity): HIGH (>70 μmol/L)
+- Transferrin saturation: LOW (<20%)
+
+Blood film: microcytic hypochromic red cells, anisocytosis, poikilocytosis
+
+Additional Tests to Identify Cause:
+- Upper and lower GI endoscopy (if GI blood loss suspected, especially post-menopausal women and all men)
+- Coeliac serology: anti-tTG IgA (screen all adults with IDA)
+- H. pylori: stool antigen or urea breath test
+- Urine dipstick (haematuria)
+- Menstrual history (LMP, heaviness, clots)
+
+Treatment
+----------
+Oral Iron Therapy:
+- First-line: Ferrous sulfate 200mg (65mg elemental iron) three times daily
+- Alternatives: ferrous gluconate, ferrous fumarate (better tolerated)
+- Take on empty stomach for maximum absorption; if GI side effects: take with food or reduce dose
+- Vitamin C (ascorbic acid) enhances non-haem iron absorption
+- Avoid tea, coffee, milk within 2 hours (reduce absorption)
+- Expected response: reticulocyte rise in 7–10 days; Hb rise 1–2 g/L/week
+- Continue therapy for 3 months after Hb normalises to replenish stores
+
+Intravenous Iron:
+- Indicated when: oral intolerance, malabsorption, non-compliance, severe anaemia requiring rapid correction,
+  pregnancy third trimester, IBD, pre-surgery, renal anaemia on dialysis
+- Preparations: ferric carboxymaltose, iron sucrose, ferumoxytol
+- Risk: hypersensitivity reactions (resuscitation facilities required)
+- Advantages: rapid Hb correction, single infusion, no GI side effects
+
+Blood Transfusion:
+- Reserved for: Hb <70 g/L with symptoms, or haemodynamic instability
+- Not a substitute for iron therapy
+
+Dietary Advice:
+- Haem iron (better absorbed): red meat, liver, poultry, fish
+- Non-haem iron (plant-based): lentils, beans, fortified cereals, spinach, dried fruit
+- Enhance absorption: consume with vitamin C (citrus juice, tomatoes)
+- Reduce inhibitors: avoid tea/coffee/calcium-rich foods at mealtimes
+
+Monitoring:
+- Repeat FBC and ferritin after 4 weeks of therapy
+- Target: Hb normalisation and ferritin >50 μg/L
+- Investigate for underlying cause: GI endoscopy, coeliac testing mandatory in unexplained IDA
+
+When to Refer:
+- Unexplained IDA (GI investigation mandatory)
+- Failure to respond to oral iron
+- Recurrent IDA without identified cause
+- Haematology referral: suspected haematological malignancy, concomitant B12/folate deficiency

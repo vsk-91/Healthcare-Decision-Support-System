@@ -1,0 +1,96 @@
+HYPERTENSION MANAGEMENT
+========================
+
+Definition and Classification
+------------------------------
+Hypertension is defined as a sustained blood pressure at or above 130/80 mmHg (ACC/AHA 2017 guidelines)
+or 140/90 mmHg (ESC/ESH 2018 guidelines). It is the leading modifiable risk factor for cardiovascular
+morbidity and mortality worldwide.
+
+Stages:
+- Elevated BP: 120-129 / <80 mmHg
+- Stage 1 Hypertension: 130-139 / 80-89 mmHg
+- Stage 2 Hypertension: ≥140 / ≥90 mmHg
+- Hypertensive Crisis: >180 / >120 mmHg
+
+Clinical Presentation
+---------------------
+Most patients with hypertension are asymptomatic. When symptomatic:
+- Headache (occipital, morning)
+- Blurred vision
+- Dizziness
+- Epistaxis in severe cases
+- Hypertensive urgency/emergency: severe headache, confusion, chest pain, dyspnea
+
+Target Organ Damage Assessment
+--------------------------------
+Physicians must assess for end-organ damage:
+- Heart: LVH on ECG/echo, heart failure, coronary artery disease
+- Brain: stroke, TIA, hypertensive encephalopathy
+- Kidney: CKD, proteinuria, elevated creatinine
+- Eyes: hypertensive retinopathy (fundoscopy)
+- Peripheral arteries: ankle-brachial index
+
+Investigations
+--------------
+- BP measurement (both arms, sitting, standing)
+- Urinalysis for proteinuria
+- Serum creatinine, electrolytes, glucose, lipid profile
+- ECG (LVH assessment)
+- Echocardiogram if indicated
+- Renal ultrasound if secondary hypertension suspected
+
+Pharmacological Treatment — First-Line Agents
+----------------------------------------------
+1. ACE Inhibitors (ramipril, lisinopril, enalapril)
+   - Preferred in CKD with proteinuria, diabetes, heart failure
+   - Monitor: serum creatinine, potassium; avoid in pregnancy
+
+2. ARBs (losartan, valsartan, candesartan)
+   - Alternative to ACEi if ACE cough occurs
+   - Similar indications to ACEi
+   - Monitor: serum creatinine, potassium
+
+3. Calcium Channel Blockers (amlodipine, nifedipine)
+   - Preferred in elderly, isolated systolic hypertension, angina
+   - Side effects: peripheral edema, flushing
+
+4. Thiazide Diuretics (hydrochlorothiazide, indapamide)
+   - Cost-effective, preferred in black patients and elderly
+   - Monitor: potassium, uric acid, glucose
+
+Beta-Blockers (bisoprolol, metoprolol):
+- Not first-line for uncomplicated hypertension
+- Preferred if concurrent: angina, heart failure with reduced EF, post-MI, AF rate control
+
+Lifestyle Modification (Non-pharmacological)
+--------------------------------------------
+- DASH diet: high in fruits, vegetables, whole grains, low-fat dairy; limits saturated fat
+- Sodium restriction: target <2.3 g/day (ideal <1.5 g/day)
+- Weight reduction: each 1 kg weight loss reduces BP by ~1 mmHg
+- Aerobic exercise: at least 150 min/week of moderate intensity
+- Alcohol moderation: <14 units/week for men, <7 for women
+- Smoking cessation: does not directly lower BP but reduces cardiovascular risk
+
+BP Targets
+----------
+- General population: <130/80 mmHg (ACC/AHA) or <140/90 (ESC)
+- Elderly ≥65 years: <130/80 mmHg if tolerated
+- CKD without proteinuria: <140/90
+- CKD with proteinuria/diabetes: <130/80
+- Post-stroke: <130/80
+
+Secondary Hypertension — When to Suspect
+------------------------------------------
+- Age <30 years without family history
+- Resistant to 3 drugs at adequate doses
+- Sudden onset or rapid worsening
+- Hypokalemia without diuretics
+- Causes: renal artery stenosis, primary aldosteronism, phaeochromocytoma,
+  Cushing's syndrome, thyroid disease, obstructive sleep apnoea
+
+Monitoring
+----------
+- Self-monitoring at home: target <135/85 mmHg
+- Ambulatory BP monitoring: preferred for white-coat and masked hypertension
+- Follow-up: every 3 months until controlled, then 6-12 monthly

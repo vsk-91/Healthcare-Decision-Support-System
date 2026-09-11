@@ -1,0 +1,127 @@
+GASTRO-OESOPHAGEAL REFLUX DISEASE (GERD) AND PEPTIC DISORDERS
+===============================================================
+
+GASTRO-OESOPHAGEAL REFLUX DISEASE (GERD)
+==========================================
+
+Definition
+----------
+GERD is defined as symptoms or complications resulting from the reflux of gastric contents into the
+oesophagus. It is one of the most prevalent gastrointestinal conditions globally, affecting 10–30%
+of Western populations.
+
+Pathophysiology
+---------------
+Primary mechanism: transient lower oesophageal sphincter (LOS) relaxations
+Contributing factors:
+- Hiatus hernia (gastro-oesophageal junction displaced above diaphragm)
+- Impaired oesophageal clearance (reduced peristalsis)
+- Delayed gastric emptying
+- Obesity (increased intra-abdominal pressure)
+- Medications reducing LOS tone: nitrates, calcium channel blockers, theophylline, anticholinergics
+
+Typical Symptoms
+-----------------
+- Heartburn: burning sensation in epigastrium/retrosternal area, worse after meals, bending, lying flat
+- Regurgitation: bitter/sour taste in mouth
+- Dysphagia (difficulty swallowing — if stricture or eosinophilic oesophagitis)
+- Odynophagia (pain on swallowing)
+
+Atypical/Extra-oesophageal Symptoms:
+- Chronic cough (especially nocturnal)
+- Hoarseness/voice changes (laryngopharyngeal reflux)
+- Asthma exacerbation
+- Dental erosions
+- Globus sensation
+
+ALARM SYMPTOMS requiring urgent endoscopy:
+- Dysphagia (progressive)
+- Unintentional weight loss
+- Haematemesis or melaena
+- Iron deficiency anaemia
+- Persistent vomiting
+- Palpable mass or lymphadenopathy
+- Age >55 with new onset dyspepsia
+
+Investigations
+--------------
+- Clinical diagnosis in typical uncomplicated GERD (no need for routine investigation)
+- Upper GI endoscopy (OGD): for alarm symptoms, failure to respond to PPI, or prolonged symptoms
+  - Findings: oesophagitis (graded by Los Angeles classification A–D), Barrett's oesophagus, stricture
+- 24-hour pH monitoring: gold standard for diagnosis when endoscopy normal
+- Oesophageal manometry: if dysphagia; assess peristalsis and LOS pressure
+- H. pylori testing: test and treat in dyspepsia (urea breath test, stool antigen)
+
+Pharmacological Treatment
+--------------------------
+Proton Pump Inhibitors (PPIs) — First-line:
+- Omeprazole 20mg once daily before breakfast (or lansoprazole, pantoprazole, esomeprazole)
+- Duration: 4–8 weeks for acute symptom control; long-term if symptoms recur
+- Double dose: if standard dose ineffective, or erosive oesophagitis grade C/D
+- Risks of long-term PPI use: hypomagnesaemia, C. difficile infection, osteoporosis,
+  renal disease, small bowel bacterial overgrowth
+
+H2 Receptor Antagonists (H2RAs):
+- Ranitidine (withdrawn due to NDMA contamination); famotidine, cimetidine
+- Less effective than PPIs but useful for: breakthrough symptoms, nocturnal acid suppression,
+  when PPI contraindicated
+
+Antacids/Alginate Preparations:
+- Gaviscon (sodium alginate + antacid): forms protective raft above gastric contents
+- For occasional/mild symptoms; rapid relief but short-acting
+
+Lifestyle and Dietary Modifications (Non-pharmacological)
+----------------------------------------------------------
+- Weight loss (most effective intervention): target BMI <25
+- Elevate head of bed 15–20 cm (for nocturnal/supine symptoms)
+- Avoid lying down 3 hours after meals
+- Reduce dietary triggers: fatty/fried foods, spicy food, chocolate, peppermint, citrus
+- Reduce caffeine, carbonated drinks, alcohol
+- Smaller, more frequent meals
+- Avoid tight-fitting clothing
+- Stop smoking (weakens LOS)
+
+HELICOBACTER PYLORI (H. PYLORI) INFECTION
+==========================================
+- Gram-negative organism colonising gastric mucosa
+- Prevalence: 50% worldwide; higher in developing countries
+- Association: peptic ulcer disease, gastric adenocarcinoma, MALT lymphoma
+
+Diagnosis:
+- Urea breath test (UBT): preferred; high sensitivity/specificity
+- Stool antigen test: equivalent accuracy; useful post-treatment
+- Endoscopic biopsy + rapid urease test (CLO test): if OGD performed
+- Serology: not recommended (cannot distinguish active from past infection)
+
+Eradication Treatment:
+Standard 7-day triple therapy:
+- PPI (omeprazole 20mg BD) + amoxicillin 1g BD + clarithromycin 500mg BD
+- 7–14 days (14 days where clarithromycin resistance >15%)
+
+If penicillin allergy:
+- PPI + metronidazole 400mg BD + clarithromycin 500mg BD
+
+Quadruple therapy (if clarithromycin resistance or treatment failure):
+- PPI + bismuth + metronidazole + tetracycline for 10–14 days
+
+PEPTIC ULCER DISEASE (PUD)
+===========================
+- Gastric ulcer: typically lesser curve; associated with H. pylori and NSAIDs
+- Duodenal ulcer: most common; strongly associated with H. pylori
+
+Symptoms:
+- Epigastric pain: burning or gnawing
+- Gastric ulcer: pain worsened by eating
+- Duodenal ulcer: pain relieved by eating, worsened 2–3h post-meal, nocturnal pain
+
+Complications:
+- Haemorrhage (haematemesis, melaena) — most common complication
+- Perforation (sudden-onset severe generalised abdominal pain, peritonitis)
+- Gastric outlet obstruction (projectile vomiting)
+
+Management:
+- H. pylori eradication (if positive)
+- PPI therapy 4–8 weeks (gastric ulcer); 4 weeks (duodenal ulcer)
+- Stop causative NSAIDs; if must continue: co-prescribe PPI
+- Repeat endoscopy at 6–8 weeks for gastric ulcer (to confirm healing and exclude malignancy)
+- Surgery: reserved for complications (perforation, haemorrhage unresponsive to endoscopic therapy)

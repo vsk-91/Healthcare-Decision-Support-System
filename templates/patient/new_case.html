@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Health Application — Healthcare DSS{% endblock %}
+{% block page_title %}New Health Application{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+<div class="col-lg-9">
+  <div class="d-flex align-items-center mb-4 gap-3">
+    <div style="width:44px;height:44px;background:#e8f4fd;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+      <i class="fas fa-file-medical text-primary fa-lg"></i>
+    </div>
+    <div>
+      <h4 class="fw-bold mb-0">Health Application Form</h4>
+      <p class="text-muted small mb-0">Please fill out all relevant sections. Your information helps the doctor provide accurate care.</p>
+    </div>
+  </div>
+  <form method="post" novalidate>
+    {% csrf_token %}
+
+    <div class="section-card mb-3">
+      <div class="section-header"><i class="fas fa-exclamation-circle text-danger"></i> Chief Complaint &amp; Symptoms</div>
+      <div class="section-body">
+        <div class="mb-3">
+          <label class="form-label fw-medium">Chief Complaint <span class="text-danger">*</span></label>
+          <input type="text" name="chief_complaint" class="form-control{% if form.chief_complaint.errors %} is-invalid{% endif %}" placeholder="e.g., Chest pain and shortness of breath" value="{{ form.chief_complaint.value|default:'' }}" required>
+          <div class="invalid-feedback">{{ form.chief_complaint.errors|first }}</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-medium">Detailed Symptoms <span class="text-danger">*</span></label>
+          <textarea name="symptoms" class="form-control{% if form.symptoms.errors %} is-invalid{% endif %}" rows="4" placeholder="Describe all symptoms in detail, including onset, duration, severity, and aggravating/relieving factors..." required>{{ form.symptoms.value|default:'' }}</textarea>
+          <div class="invalid-feedback">{{ form.symptoms.errors|first }}</div>
+        </div>
+        <div class="mb-0">
+          <label class="form-label fw-medium">How long have you had these symptoms?</label>
+          <input type="text" name="symptom_duration" class="form-control" placeholder="e.g., 3 days, 2 weeks" value="{{ form.symptom_duration.value|default:'' }}">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card mb-3">
+      <div class="section-header"><i class="fas fa-history text-info"></i> Medical History</div>
+      <div class="section-body">
+        <div class="mb-3">
+          <label class="form-label fw-medium">Past Medical History</label>
+          <textarea name="medical_history" class="form-control" rows="3" placeholder="Diagnosed conditions, previous surgeries, hospitalizations...">{{ form.medical_history.value|default:'' }}</textarea>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium">Current Medications</label>
+            <textarea name="current_medications" class="form-control" rows="3" placeholder="Name, dosage, and frequency of all medications...">{{ form.current_medications.value|default:'' }}</textarea>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-medium">Known Allergies</label>
+            <textarea name="allergies" class="form-control" rows="3" placeholder="Drug allergies, food allergies, environmental allergies...">{{ form.allergies.value|default:'' }}</textarea>
+          </div>
+        </div>
+        <div class="mb-0">
+          <label class="form-label fw-medium">Previous Diseases / Major Illnesses</label>
+          <textarea name="previous_diseases" class="form-control" rows="2" placeholder="Major illnesses or chronic conditions in the past...">{{ form.previous_diseases.value|default:'' }}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card mb-3">
+      <div class="section-header"><i class="fas fa-users text-success"></i> Family &amp; Lifestyle History</div>
+      <div class="section-body">
+        <div class="mb-3">
+          <label class="form-label fw-medium">Family Medical History</label>
+          <textarea name="family_history" class="form-control" rows="3" placeholder="Heart disease, diabetes, cancer, hypertension in close relatives...">{{ form.family_history.value|default:'' }}</textarea>
+        </div>
+        <div class="mb-0">
+          <label class="form-label fw-medium">Lifestyle Information</label>
+          <textarea name="lifestyle_info" class="form-control" rows="2" placeholder="Smoking, alcohol use, exercise habits, diet, occupation...">{{ form.lifestyle_info.value|default:'' }}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card mb-4">
+      <div class="section-header"><i class="fas fa-comment-medical text-warning"></i> Additional Information</div>
+      <div class="section-body">
+        <textarea name="additional_info" class="form-control" rows="3" placeholder="Anything else you'd like the doctor to know...">{{ form.additional_info.value|default:'' }}</textarea>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <a href="{% url 'patients:dashboard' %}" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-2"></i>Back</a>
+      <button type="submit" class="btn btn-primary px-4"><i class="fas fa-paper-plane me-2"></i>Submit Health Application</button>
+    </div>
+  </form>
+</div>
+</div>
+{% endblock %}

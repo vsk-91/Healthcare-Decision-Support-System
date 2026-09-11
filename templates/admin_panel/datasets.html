@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Datasets — Admin{% endblock %}
+{% block page_title %}Dataset Management{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div><h4 class="fw-bold mb-1">Datasets</h4><p class="text-muted small mb-0">Manage training datasets for AI models.</p></div>
+  <a href="{% url 'administration:dataset_upload' %}" class="btn btn-primary"><i class="fas fa-upload me-2"></i>Upload Dataset</a>
+</div>
+
+<div class="section-card">
+  <div class="section-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="table-light"><tr><th>Name</th><th>Version</th><th>Type</th><th>Records</th><th>Status</th><th>Uploaded By</th><th>Date</th><th>Actions</th></tr></thead>
+      <tbody>
+        {% for ds in datasets %}
+        <tr>
+          <td><div class="fw-medium">{{ ds.name }}</div><div class="small text-muted">{{ ds.description|truncatechars:50 }}</div></td>
+          <td><span class="badge bg-light text-dark border">v{{ ds.version }}</span></td>
+          <td class="small">{{ ds.dataset_type|default:"—" }}</td>
+          <td class="small">{{ ds.record_count|default:"—" }}</td>
+          <td><span class="badge rounded-pill {% if ds.status == 'ACTIVE' %}bg-success{% elif ds.status == 'PROCESSING' %}bg-warning text-dark{% else %}bg-secondary{% endif %}">{{ ds.status }}</span></td>
+          <td class="small">{{ ds.uploaded_by.username|default:"—" }}</td>
+          <td class="small text-muted">{{ ds.created_at|date:"M d, Y" }}</td>
+          <td>
+            <form method="post" action="{% url 'administration:dataset_delete' ds.id %}" onsubmit="return confirm('Delete this dataset?')">
+              {% csrf_token %}
+              <button class="btn btn-sm btn-outline-danger py-0 px-2"><i class="fas fa-trash"></i></button>
+            </form>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="8" class="text-center text-muted py-5"><i class="fas fa-database fa-3x opacity-25 d-block mb-3"></i>No datasets uploaded yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Test Requests — Staff{% endblock %}
+{% block page_title %}Test Requests{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div><h4 class="fw-bold mb-1">Test Requests</h4><p class="text-muted small mb-0">Lab test requests assigned for processing.</p></div>
+</div>
+
+<div class="mb-3 d-flex gap-2 flex-wrap">
+  {% for status, label in status_choices %}
+  <a href="?status={{ status }}" class="btn btn-sm {% if status_filter == status %}btn-warning{% else %}btn-outline-secondary{% endif %}">{{ label }}</a>
+  {% endfor %}
+</div>
+
+<div class="section-card">
+  <div class="section-body p-0">
+    {% if requests %}
+    <table class="table table-hover mb-0">
+      <thead class="table-light"><tr><th>#</th><th>Test Type</th><th>Case</th><th>Doctor</th><th>Patient</th><th>Status</th><th>Requested</th><th></th></tr></thead>
+      <tbody>
+        {% for req in requests %}
+        <tr>
+          <td class="small text-muted">{{ req.id }}</td>
+          <td class="fw-medium"><i class="fas fa-vial me-1 text-warning"></i>{{ req.get_test_type_display }}</td>
+          <td><code class="small">{{ req.case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+          <td class="small">Dr. {{ req.doctor.get_full_name|default:req.doctor.username }}</td>
+          <td class="small">{{ req.case.patient.get_full_name|default:req.case.patient.username }}</td>
+          <td><span class="badge rounded-pill {% if req.status == 'VERIFIED' %}bg-success{% elif req.status == 'REJECTED' %}bg-danger{% elif req.status == 'REPORT_UPLOADED' %}bg-warning text-dark{% elif req.status == 'IN_PROGRESS' %}bg-info{% else %}bg-secondary{% endif %}">{{ req.get_status_display }}</span></td>
+          <td class="small text-muted">{{ req.requested_at|date:"M d, Y" }}</td>
+          <td>
+            {% if req.status != 'VERIFIED' and req.status != 'COMPLETED' %}
+            <a href="{% url 'staff:test_request_detail' req.id %}" class="btn btn-sm btn-warning"><i class="fas fa-upload me-1"></i>Upload</a>
+            {% else %}
+            <a href="{% url 'staff:test_request_detail' req.id %}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye me-1"></i>View</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="text-center py-5 text-muted"><i class="fas fa-check-circle fa-3x opacity-25 mb-3 d-block"></i>No requests with status "{{ status_filter }}".</div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

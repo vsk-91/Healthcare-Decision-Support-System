@@ -1,0 +1,130 @@
+ANXIETY AND MENTAL HEALTH DISORDERS
+=====================================
+
+Generalised Anxiety Disorder (GAD)
+------------------------------------
+Definition:
+GAD is characterised by persistent, excessive, and difficult-to-control worry about multiple
+everyday concerns, lasting ≥6 months, causing significant impairment in daily functioning.
+
+Diagnostic Criteria (DSM-5):
+- Excessive anxiety and worry (apprehensive expectation) occurring more days than not for ≥6 months
+- Difficulty controlling worry
+- Associated with ≥3 of 6 symptoms:
+  1. Restlessness or feeling keyed-up or on edge
+  2. Being easily fatigued
+  3. Difficulty concentrating or mind going blank
+  4. Irritability
+  5. Muscle tension
+  6. Sleep disturbance
+- Significant distress or functional impairment
+- Not attributable to substance/medication or another medical condition
+
+Assessment Tools:
+- GAD-7 (Generalised Anxiety Disorder 7-item scale):
+  Score 0–4: minimal anxiety
+  Score 5–9: mild anxiety
+  Score 10–14: moderate anxiety
+  Score ≥15: severe anxiety
+- PHQ-9: assess co-morbid depression
+
+Screening for organic causes:
+- Thyroid function tests (hyperthyroidism mimics anxiety)
+- Caffeine intake, substance use (cannabis, stimulants)
+- Medication review (corticosteroids, beta-agonists, decongestants)
+- FBC, glucose (anaemia, hypoglycaemia)
+
+Panic Disorder
+--------------
+- Recurrent, unexpected panic attacks (sudden surge of intense fear peaking within minutes)
+- Physical symptoms: palpitations, chest tightness, dyspnoea, dizziness, paresthesia, sweating, tremor
+- Agoraphobia: fear/avoidance of situations where escape may be difficult
+- Persistent worry about future attacks ≥1 month
+
+Treatment Approach (Stepped Care Model)
+-----------------------------------------
+Step 1: Watchful waiting, self-help resources, psychoeducation
+- Advise: lifestyle changes, sleep hygiene, reduction of caffeine and alcohol
+- Provide written information
+
+Step 2: Low-intensity psychological interventions
+- Guided self-help based on CBT principles
+- Computerised CBT (cCBT) programmes
+
+Step 3: High-intensity psychological treatment
+- Cognitive Behavioural Therapy (CBT): Gold standard — 12–15 sessions
+  Techniques: cognitive restructuring, exposure, relaxation training, worry time
+- Applied relaxation (for GAD)
+
+Step 4: Pharmacological Treatment
+
+First-line Pharmacotherapy:
+1. SSRIs (Selective Serotonin Reuptake Inhibitors):
+   - Sertraline 50mg OD (up to 200mg); escitalopram 10mg OD (up to 20mg)
+   - Paroxetine: effective but more discontinuation effects
+   - Treatment response: 4–6 weeks; full benefit 8–12 weeks
+   - Continue for 12 months after remission to prevent relapse
+
+2. SNRIs (Serotonin-Norepinephrine Reuptake Inhibitors):
+   - Venlafaxine 75mg OD (up to 225mg); duloxetine 30mg OD (up to 120mg)
+   - Effective for both anxiety and comorbid depression
+
+Second-line:
+- Pregabalin 150–600mg/day (in 2–3 divided doses): approved for GAD; rapid onset
+  Caution: dependence potential; withdrawal; cognitive impairment
+- Buspirone: non-addictive; slow onset (2–4 weeks); suitable for chronic GAD
+- TCAs (imipramine, clomipramine): effective but poorly tolerated
+
+Benzodiazepines:
+- Only for short-term use (≤2–4 weeks) during acute crises
+- NOT recommended for long-term treatment due to tolerance, dependence, and cognitive impairment
+- Diazepam, lorazepam, alprazolam
+
+Lifestyle Interventions (Evidence-based):
+- Regular aerobic exercise (150 min/week): as effective as medication for mild-moderate anxiety
+- Mindfulness-based stress reduction (MBSR): reduces rumination and anxiety
+- Adequate sleep hygiene: consistent bedtime, no screens before sleep, dark/cool room
+- Dietary: reduce caffeine; maintain regular meal times; limit alcohol
+- Social support networks
+
+Anxiety with Comorbidities:
+- Depression (most common comorbidity): 50% of GAD patients — combined treatment
+- Somatic symptoms: pain, fatigue, GI symptoms — need integrated approach
+- Substance use disorders: treat concurrently
+- Cardiac disease: rule out arrhythmias before diagnosing anxiety
+
+Depression (Major Depressive Disorder)
+---------------------------------------
+Core features (PHQ-9):
+- Depressed mood most of the day
+- Anhedonia (loss of interest or pleasure)
+- ≥5 symptoms ≥2 weeks
+
+Additional symptoms:
+- Weight change/appetite disturbance
+- Insomnia or hypersomnia
+- Psychomotor agitation or retardation
+- Fatigue, loss of energy
+- Feelings of worthlessness/guilt
+- Difficulty concentrating
+- Recurrent thoughts of death/suicidal ideation
+
+Risk Assessment — ALWAYS assess suicide risk:
+- Active suicidal ideation: intent, plan, means
+- Past attempts, family history
+- Protective factors: social support, religious beliefs, children
+- Immediate safety planning if at risk
+
+Treatment of Depression:
+- Mild: psychosocial interventions, CBT, behavioural activation
+- Moderate-severe: antidepressant + CBT
+- SSRIs are first-line: fluoxetine, sertraline, citalopram, escitalopram
+- Continue antidepressant ≥6 months after remission; 2 years if recurrent
+- ECT (electroconvulsive therapy): severe/refractory depression or if life-threatening
+
+Red Flags for Urgent Psychiatric Referral:
+- Active suicidal ideation with intent/plan
+- Psychotic features (hallucinations, delusions)
+- Severe self-neglect
+- Catatonia
+- First episode of mania or hypomania

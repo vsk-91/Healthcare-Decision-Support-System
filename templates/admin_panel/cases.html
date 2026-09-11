@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}All Cases — Admin{% endblock %}
+{% block page_title %}All Patient Cases{% endblock %}
+{% block content %}
+<div class="mb-4"><h4 class="fw-bold mb-1">All Cases</h4><p class="text-muted small">System-wide view of all patient cases.</p></div>
+<div class="section-card">
+  <div class="section-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-light"><tr><th>Case ID</th><th>Patient</th><th>Chief Complaint</th><th>Assigned Doctor</th><th>Status</th><th>Created</th></tr></thead>
+        <tbody>
+          {% for case in cases %}
+          <tr>
+            <td><code class="small text-primary">{{ case.case_id|stringformat:"s"|truncatechars:8 }}</code></td>
+            <td>
+              <div class="fw-medium">{{ case.patient.get_full_name|default:case.patient.username }}</div>
+              <div class="small text-muted">{{ case.patient.username }}</div>
+            </td>
+            <td class="small">{{ case.chief_complaint|truncatechars:40 }}</td>
+            <td class="small">{% if case.assigned_doctor %}Dr. {{ case.assigned_doctor.get_full_name }}{% else %}<span class="text-muted">Unassigned</span>{% endif %}</td>
+            <td><span class="badge badge-status-{{ case.status }} rounded-pill">{{ case.get_status_display }}</span></td>
+            <td class="small text-muted">{{ case.created_at|date:"M d, Y" }}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="6" class="text-center text-muted py-5"><i class="fas fa-folder fa-3x opacity-25 d-block mb-3"></i>No cases in the system yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
