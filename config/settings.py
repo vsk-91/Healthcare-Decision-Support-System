@@ -95,3 +95,15 @@ CHROMA_DB_PATH = env('CHROMA_DB_PATH', default='./chroma_db')
 
 # Gemini model for clinical explanation generation
 LLM_MODEL = env('LLM_MODEL', default='gemini-2.5-flash')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://healthcare-decision-support-system.onrender.com',
+    'https://*.onrender.com',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this line
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    ...
+]
