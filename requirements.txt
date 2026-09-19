@@ -112,3 +112,4 @@ websockets==16.1.1
 whitenoise==6.12.0
 yarl==1.24.5
 zipp==4.1.0
+gunicorn>=21.0.0
