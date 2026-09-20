@@ -11,6 +11,9 @@ python manage.py collectstatic --no-input
 echo "==> Running database migrations..."
 python manage.py migrate
 
+echo "==> Setting up default admin superuser..."
+python create_admin.py
+
 # If GEMINI_API_KEY is configured in Render environment, ingest knowledge base into ChromaDB
 if [ -n "$GEMINI_API_KEY" ] && [ "$GEMINI_API_KEY" != "your-gemini-api-key" ]; then
     echo "==> Ingesting medical knowledge into ChromaDB..."
