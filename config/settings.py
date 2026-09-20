@@ -11,6 +11,11 @@ SECRET_KEY = env('SECRET_KEY', default='django-insecure-dummy-key-for-dev-123')
 DEBUG = env('DEBUG', default=True)
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['*'])
 
+# Dynamically add Render external hostname if running on Render
+RENDER_EXTERNAL_HOSTNAME = env('RENDER_EXTERNAL_HOSTNAME', default='')
+if RENDER_EXTERNAL_HOSTNAME and RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -18,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'storages',
     'rest_framework',
     'accounts',
     'patients',
@@ -33,6 +40,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,45 +79,83 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
+# ---------------------------------------------------------------------------
+# STATIC & MEDIA STORAGE (Render + Firebase Storage)
+# ---------------------------------------------------------------------------
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+WHITENOISE_MANIFEST_STRICT = False
+
+USE_FIREBASE_STORAGE = env.bool('USE_FIREBASE_STORAGE', default=False)
+
+if USE_FIREBASE_STORAGE:
+    GS_BUCKET_NAME = env('GS_BUCKET_NAME', default='')
+    GS_PROJECT_ID = env('GS_PROJECT_ID', default=None)
+    GS_CREDENTIALS_PATH = env('GS_CREDENTIALS_PATH', default='')
+    if GS_CREDENTIALS_PATH and os.path.exists(GS_CREDENTIALS_PATH):
+        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = GS_CREDENTIALS_PATH
+
+    STORAGES = {
+        "default": {
+            "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
+            "OPTIONS": {
+                "bucket_name": GS_BUCKET_NAME,
+                "project_id": GS_PROJECT_ID,
+            }
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+    MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 # ---------------------------------------------------------------------------
-# AI SETTINGS — Google Gemini + ChromaDB
+# CORS & CSRF SETTINGS (Firebase Hosting & Cross-Origin support)
 # ---------------------------------------------------------------------------
-# Gemini API key — set in .env, NEVER hard-code here
-GEMINI_API_KEY = env('GEMINI_API_KEY', default='')
-
-# Gemini embedding model for RAG (ChromaDB ingestion + query embedding)
-EMBEDDING_MODEL = env('EMBEDDING_MODEL', default='gemini-embedding-001')
-
-# Local filesystem path where ChromaDB stores the persistent vector database
-# Run: python manage.py ingest_medical_knowledge  to populate it
-CHROMA_DB_PATH = env('CHROMA_DB_PATH', default='./chroma_db')
-
-# Gemini model for clinical explanation generation
-LLM_MODEL = env('LLM_MODEL', default='gemini-2.5-flash')
+CORS_ALLOW_ALL_ORIGINS = env.bool('CORS_ALLOW_ALL_ORIGINS', default=False)
+CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'http://localhost:5000',
+    'http://127.0.0.1:8000',
+])
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.web\.app$",
+    r"^https://.*\.firebaseapp\.com$",
+    r"^https://.*\.onrender\.com$",
+]
+CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     'https://healthcare-decision-support-system.onrender.com',
     'https://*.onrender.com',
+    'https://*.web.app',
+    'https://*.firebaseapp.com',
 ]
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+# ---------------------------------------------------------------------------
+# AI SETTINGS — Google Gemini + ChromaDB
+# ---------------------------------------------------------------------------
+GEMINI_API_KEY = env('GEMINI_API_KEY', default='')
+EMBEDDING_MODEL = env('EMBEDDING_MODEL', default='gemini-embedding-001')
+CHROMA_DB_PATH = env('CHROMA_DB_PATH', default='./chroma_db')
+LLM_MODEL = env('LLM_MODEL', default='gemini-2.5-flash')
