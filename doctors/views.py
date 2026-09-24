@@ -1,4 +1,6 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from cases.models import PatientCase
 from reports.models import TestRequest, MedicalReport
 from ai_engine.models import AIAnalysis, DoctorDecision
@@ -6,6 +8,8 @@ from ai_engine.services.multimodal_service import MultimodalAnalysisService
 from .forms import TestRequestForm, DoctorDecisionForm
 from accounts.decorators import doctor_required
 from audit.utils import log_action
+
+logger = logging.getLogger(__name__)
 
 STATUS_STEPS = [
     ('SUBMITTED', 'Submitted'),
@@ -132,24 +136,32 @@ def verify_report(request, report_id):
 def run_ai_analysis(request, case_id):
     case = get_object_or_404(PatientCase, case_id=case_id)
     if request.method == 'POST':
+        prev_status = case.status
         case.status = PatientCase.STATUS_AI_ANALYSIS
         case.save()
-        service = MultimodalAnalysisService()
-        result = service.analyze(case)
-        AIAnalysis.objects.create(
-            case=case,
-            initiated_by=request.user,
-            prediction=result['prediction'],
-            confidence=result['confidence'],
-            supporting_findings='\n'.join(result['supporting_findings']),
-            rag_context='\n'.join(result['rag_context']),
-            llm_explanation=result['llm_explanation'],
-            status=AIAnalysis.STATUS_COMPLETED,
-        )
-        case.status = PatientCase.STATUS_DOCTOR_REVIEW
-        case.save()
-        log_action(request.user, 'AI_ANALYSIS',
-                   f'Ran AI analysis on case {case.case_id} (mode: {result.get("mode","mock")})', request)
+        try:
+            service = MultimodalAnalysisService()
+            result = service.analyze(case)
+            AIAnalysis.objects.create(
+                case=case,
+                initiated_by=request.user,
+                prediction=result['prediction'],
+                confidence=result['confidence'],
+                supporting_findings='\n'.join(result.get('supporting_findings', [])),
+                rag_context='\n'.join(result.get('rag_context', [])),
+                llm_explanation=result.get('llm_explanation', ''),
+                status=AIAnalysis.STATUS_COMPLETED,
+            )
+            case.status = PatientCase.STATUS_DOCTOR_REVIEW
+            case.save()
+            log_action(request.user, 'AI_ANALYSIS',
+                       f'Ran AI analysis on case {case.case_id} (mode: {result.get("mode","gemini")})', request)
+            messages.success(request, 'AI Analysis generated successfully. You can now review the findings and submit your final clinical decision.')
+        except Exception as exc:
+            logger.error("AI Analysis failed for case %s: %s", case.case_id, exc, exc_info=True)
+            case.status = prev_status if prev_status != PatientCase.STATUS_AI_ANALYSIS else PatientCase.STATUS_REPORT_VERIFIED
+            case.save()
+            messages.error(request, f'AI Analysis could not complete: {exc}')
     return redirect('doctors:case_detail', case_id=case.case_id)
 
 

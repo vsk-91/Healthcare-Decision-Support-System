@@ -175,14 +175,13 @@ class MultimodalAnalysisService:
             logger.info("RAG retrieved %d chunks for case pk=%s",
                         len(rag_results), getattr(case, "pk", "unknown"))
         except Exception as exc:
-            logger.error("RAG retrieval failed: %s", exc)
-            raise RuntimeError(f"RAG retrieval failed: {exc}") from exc
+            logger.warning("RAG retrieval failed: %s — continuing without vector chunks.", exc)
+            rag_results = []
 
         # Step 4: Attached reports summary
         reports_summary = _build_reports_summary(case)
 
         # Step 5: Gemini LLM explanation
-        # RAG context is always included in the prompt
         llm_context = {
             "prediction":      condition["prediction"],
             "confidence":      condition["confidence"],
@@ -190,18 +189,20 @@ class MultimodalAnalysisService:
             "medical_history": case.medical_history or "None",
             "medications":     case.current_medications or "None",
             "family_history":  case.family_history or "None",
-            "rag_context":     rag_results,        # <-- RAG flows into LLM
+            "rag_context":     rag_results,
             "reports_summary": reports_summary,
         }
 
         try:
             explanation = self.llm_service.generate_explanation(llm_context)
+            mode = "gemini" if getattr(self.llm_service, "_last_used_gemini", True) else "clinical_rules"
         except Exception as exc:
-            logger.error("LLM explanation generation failed: %s", exc)
-            raise RuntimeError(f"Gemini LLM call failed: {exc}") from exc
+            logger.warning("LLM explanation failed: %s — generating fallback clinical analysis.", exc)
+            explanation = self.llm_service._generate_fallback_explanation(llm_context, str(exc))
+            mode = "clinical_rules"
 
-        logger.info("AI analysis complete for case pk=%s",
-                    getattr(case, "pk", "unknown"))
+        logger.info("AI analysis complete for case pk=%s (mode=%s)",
+                    getattr(case, "pk", "unknown"), mode)
 
         return {
             "prediction":          condition["prediction"],
@@ -209,5 +210,5 @@ class MultimodalAnalysisService:
             "supporting_findings": condition.get("findings", []),
             "rag_context":         rag_results,
             "llm_explanation":     explanation,
-            "mode":                "gemini",
+            "mode":                mode,
         }

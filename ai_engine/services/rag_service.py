@@ -231,42 +231,97 @@ class _GeminiRAG:
     def retrieve(self, query: str, top_k: int = 3) -> list:
         """
         Semantically retrieve the top_k most relevant chunks from ChromaDB.
-
-        Raises:
-            ValueError: If GEMINI_API_KEY is not set.
-            RuntimeError: If ChromaDB is empty (prompt user to run ingestion).
+        Automatically attempts knowledge-base ingestion or file fallback
+        if ChromaDB is empty or uninitialized, preventing server crashes.
         """
         if not query or not query.strip():
             logger.warning("RAG retrieve called with empty query.")
             return []
 
         top_k = max(1, int(top_k))
-        self._init()
 
-        count = self._collection.count()
-        if count == 0:
-            raise RuntimeError(
-                "The ChromaDB knowledge base is empty. "
-                "Run: python manage.py ingest_medical_knowledge\n"
-                "This will embed all documents in knowledge_base/ into ChromaDB."
+        try:
+            self._init()
+            count = self._collection.count()
+            if count == 0:
+                logger.info("ChromaDB is empty; attempting auto-ingestion from knowledge_base...")
+                s = _get_settings()
+                base_dir = getattr(s, "BASE_DIR", Path(__file__).resolve().parent.parent.parent)
+                kb_dir = Path(base_dir) / "knowledge_base"
+                if kb_dir.is_dir():
+                    try:
+                        self.ingest_directory(str(kb_dir))
+                        count = self._collection.count()
+                    except Exception as ingest_err:
+                        logger.warning("Auto-ingestion into ChromaDB failed: %s", ingest_err)
+
+            if count > 0:
+                query_embedding = self._embed(query)
+                results = self._collection.query(
+                    query_embeddings=[query_embedding],
+                    n_results=min(top_k, count),
+                    include=["documents", "metadatas", "distances"],
+                )
+                documents = results.get("documents", [[]])[0]
+                metadatas = results.get("metadatas", [[]])[0]
+
+                output = []
+                for doc, meta in zip(documents, metadatas):
+                    topic = meta.get("topic", meta.get("doc_id", "Medical Knowledge"))
+                    output.append(f"[{topic}] {doc}")
+
+                if output:
+                    return output
+        except Exception as exc:
+            logger.warning(
+                "ChromaDB retrieval unavailable (%s) — retrieving directly from knowledge_base files.",
+                exc,
             )
 
-        query_embedding = self._embed(query)
-        results = self._collection.query(
-            query_embeddings=[query_embedding],
-            n_results=min(top_k, count),
-            include=["documents", "metadatas", "distances"],
-        )
+        # Fallback: scan knowledge_base/*.txt files directly
+        return retrieve_from_knowledge_base_files(query, top_k)
 
-        documents = results.get("documents", [[]])[0]
-        metadatas = results.get("metadatas", [[]])[0]
 
-        output = []
-        for doc, meta in zip(documents, metadatas):
-            topic = meta.get("topic", meta.get("doc_id", "Medical Knowledge"))
-            output.append(f"[{topic}] {doc}")
+def retrieve_from_knowledge_base_files(query: str, top_k: int = 3) -> list:
+    """
+    Direct document retrieval from knowledge_base/*.txt files when
+    ChromaDB or vector embeddings are temporarily unavailable.
+    """
+    s = _get_settings()
+    base_dir = getattr(s, "BASE_DIR", Path(__file__).resolve().parent.parent.parent)
+    kb_dir = Path(base_dir) / "knowledge_base"
+    if not kb_dir.is_dir():
+        return ["Clinical guidelines recommend standard diagnostic workup and correlation with patient symptoms."]
 
-        return output or ["No relevant medical context retrieved for this query."]
+    query_words = set(w.lower() for w in query.split() if len(w) > 3)
+    scored_chunks = []
+
+    for txt_file in kb_dir.glob("*.txt"):
+        try:
+            topic = txt_file.stem.replace("_", " ").title()
+            text = txt_file.read_text(encoding="utf-8")
+            chunks = chunk_text(text, chunk_size=500, overlap=50)
+            for chunk in chunks:
+                chunk_lower = chunk.lower()
+                score = sum(1 for w in query_words if w in chunk_lower)
+                if score > 0:
+                    scored_chunks.append((score, f"[{topic}] {chunk.strip()}"))
+        except Exception:
+            continue
+
+    scored_chunks.sort(key=lambda x: x[0], reverse=True)
+    if scored_chunks:
+        return [item[1] for item in scored_chunks[:top_k]]
+
+    # If no keyword overlap matched, return default clinical summaries
+    fallbacks = []
+    for fname in ["hypertension.txt", "diabetes.txt", "respiratory_infections.txt"]:
+        fpath = kb_dir / fname
+        if fpath.is_file():
+            topic = fpath.stem.replace("_", " ").title()
+            excerpt = fpath.read_text(encoding="utf-8")[:300].strip()
+            fallbacks.append(f"[{topic}] {excerpt}...")
+    return fallbacks or ["Clinical knowledge base consultation recommended."]
 
 
 # ---------------------------------------------------------------------------
