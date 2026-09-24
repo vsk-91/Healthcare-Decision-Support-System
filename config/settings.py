@@ -87,15 +87,24 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 WHITENOISE_MANIFEST_STRICT = False
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+os.makedirs(MEDIA_ROOT, exist_ok=True)
+
 USE_FIREBASE_STORAGE = env.bool('USE_FIREBASE_STORAGE', default=False)
+GS_BUCKET_NAME = env('GS_BUCKET_NAME', default='').strip()
+GS_PROJECT_ID = env('GS_PROJECT_ID', default=None)
+GS_CREDENTIALS_PATH = env('GS_CREDENTIALS_PATH', default='').strip()
 
-if USE_FIREBASE_STORAGE:
-    GS_BUCKET_NAME = env('GS_BUCKET_NAME', default='')
-    GS_PROJECT_ID = env('GS_PROJECT_ID', default=None)
-    GS_CREDENTIALS_PATH = env('GS_CREDENTIALS_PATH', default='')
-    if GS_CREDENTIALS_PATH and os.path.exists(GS_CREDENTIALS_PATH):
-        os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = GS_CREDENTIALS_PATH
+# Verify whether Google Cloud / Firebase credentials file actually exists
+has_creds = False
+if GS_CREDENTIALS_PATH and os.path.exists(GS_CREDENTIALS_PATH):
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = GS_CREDENTIALS_PATH
+    has_creds = True
+elif os.environ.get('GOOGLE_APPLICATION_CREDENTIALS') and os.path.exists(os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')):
+    has_creds = True
 
+if USE_FIREBASE_STORAGE and GS_BUCKET_NAME and has_creds:
     STORAGES = {
         "default": {
             "BACKEND": "storages.backends.gcloud.GoogleCloudStorage",
@@ -110,8 +119,6 @@ if USE_FIREBASE_STORAGE:
     }
     MEDIA_URL = f'https://storage.googleapis.com/{GS_BUCKET_NAME}/'
 else:
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = BASE_DIR / 'media'
     STORAGES = {
         "default": {
             "BACKEND": "django.core.files.storage.FileSystemStorage",

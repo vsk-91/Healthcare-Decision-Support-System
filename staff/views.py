@@ -1,10 +1,14 @@
+import logging
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from reports.models import TestRequest, MedicalReport
 from cases.models import PatientCase
 from .forms import MedicalReportUploadForm
 from accounts.decorators import staff_required
 from audit.utils import log_action
 import datetime
+
+logger = logging.getLogger(__name__)
 
 
 @staff_required
@@ -53,19 +57,34 @@ def upload_report(request, request_id):
     if request.method == 'POST':
         form = MedicalReportUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            report = form.save(commit=False)
-            report.test_request = req
-            report.case = req.case
-            report.uploaded_by = request.user
-            report.status = MedicalReport.STATUS_UPLOADED
-            report.save()
-            req.status = TestRequest.STATUS_REPORT_UPLOADED
-            req.save()
-            req.case.status = PatientCase.STATUS_REPORT_UPLOADED
-            req.case.save()
-            log_action(request.user, 'REPORT_UPLOAD',
-                       f'Uploaded report "{report.title}" for test request {req.id}', request)
-            return redirect('staff:test_requests')
+            try:
+                report = form.save(commit=False)
+                report.test_request = req
+                report.case = req.case
+                report.uploaded_by = request.user
+                report.status = MedicalReport.STATUS_UPLOADED
+                report.save()
+                req.status = TestRequest.STATUS_REPORT_UPLOADED
+                req.save()
+                req.case.status = PatientCase.STATUS_REPORT_UPLOADED
+                req.case.save()
+                try:
+                    log_action(request.user, 'REPORT_UPLOAD',
+                               f'Uploaded report "{report.title}" for test request {req.id}', request)
+                except Exception as log_err:
+                    logger.warning("Audit logging failed: %s", log_err)
+                messages.success(
+                    request,
+                    f'Medical report "{report.title}" has been uploaded and sent to Dr. {req.doctor.get_full_name_or_username()}.'
+                )
+                return redirect('staff:test_requests')
+            except Exception as exc:
+                logger.error("Failed to upload report: %s", exc, exc_info=True)
+                messages.error(request, f'Failed to upload medical report: {exc}')
+                return render(request, 'staff/test_request_detail.html', {
+                    'req': req, 'form': form,
+                    'today': datetime.date.today().isoformat(),
+                })
         else:
             return render(request, 'staff/test_request_detail.html', {
                 'req': req, 'form': form,

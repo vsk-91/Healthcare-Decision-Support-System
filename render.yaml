@@ -32,7 +32,7 @@ services:
       
       # Firebase Cloud Storage configuration for persistent media (X-rays, MRIs, PDFs)
       - key: USE_FIREBASE_STORAGE
-        value: "True"
+        value: "False"
       - key: GS_BUCKET_NAME
         sync: false
       - key: GS_PROJECT_ID

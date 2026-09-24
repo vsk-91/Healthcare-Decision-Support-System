@@ -12,4 +12,7 @@ urlpatterns = [
     path('doctor/', include('doctors.urls', namespace='doctors')),
     path('staff/', include('staff.urls', namespace='staff')),
     path('admin-panel/', include('administration.urls', namespace='administration')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.MEDIA_URL.startswith('/'):
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
